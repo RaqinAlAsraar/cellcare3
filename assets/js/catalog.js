@@ -213,21 +213,6 @@
       }
     }
   }
-        if (window.finishPreloader) window.finishPreloader();
-      } else {
-        if (!isBackground && state.products.length === 0) {
-          renderFetchError();
-          if (window.finishPreloader) window.finishPreloader();
-        }
-      }
-    } catch (e) {
-      console.debug("Backend sync error:", e);
-      if (!isBackground && state.products.length === 0) {
-        renderFetchError();
-        if (window.finishPreloader) window.finishPreloader();
-      }
-    }
-  }
 
 
   // ----------------------------------------------------

@@ -90,13 +90,33 @@
       }
     } catch (e) {}
 
+    function matchProduct(targetStr, list) {
+      if (!targetStr || !Array.isArray(list) || !list.length) return null;
+      let norm = "";
+      try { norm = decodeURIComponent(targetStr).toLowerCase().trim(); } catch (e) { norm = targetStr.toLowerCase().trim(); }
+      
+      return list.find(p => {
+        const pId = String(p.id || "").toLowerCase();
+        const pSku = String(p.sku || "").toLowerCase();
+        const pSlug = String(p.slug || "").toLowerCase();
+        const pTitle = String(p.title || "").toLowerCase();
+        return (
+          pId === norm ||
+          ("cc-" + pId) === norm ||
+          pSku === norm ||
+          ("cc-" + pSku) === norm ||
+          pSlug === norm ||
+          pTitle === norm ||
+          pTitle.includes(norm) ||
+          norm.includes(pSlug) ||
+          norm.includes(pId)
+        );
+      });
+    }
+
     let found = null;
-    if (target && allProducts.length > 0) {
-      found = allProducts.find(p => 
-        (p.slug && p.slug.toLowerCase() === target.toLowerCase()) ||
-        String(p.id).toLowerCase() === target.toLowerCase() ||
-        (p.title && p.title.toLowerCase().includes(target.toLowerCase()))
-      );
+    if (allProducts.length > 0) {
+      found = target ? matchProduct(target, allProducts) : allProducts[0];
       if (found) {
         currentProduct = found;
         clearDetailSkeleton();
@@ -138,19 +158,12 @@
         if (allProducts.length) {
           try { sessionStorage.setItem(CACHE_KEY, JSON.stringify({ items: allProducts })); } catch (e) {}
 
-          if (target) {
-            found = allProducts.find(p =>
-              (p.slug && p.slug.toLowerCase() === target.toLowerCase()) ||
-              String(p.id).toLowerCase() === target.toLowerCase() ||
-              (p.title && p.title.toLowerCase().includes(target.toLowerCase()))
-            );
-          }
-
-          if (found) {
-            currentProduct = found;
+          const resolved = target ? matchProduct(target, allProducts) : allProducts[0];
+          if (resolved) {
+            currentProduct = resolved;
             clearDetailSkeleton();
-            renderProductDetails(found);
-            loadRelatedProducts(allProducts, found);
+            renderProductDetails(resolved);
+            loadRelatedProducts(allProducts, resolved);
           } else if (allProducts[0]) {
             currentProduct = allProducts[0];
             clearDetailSkeleton();
@@ -158,9 +171,14 @@
             loadRelatedProducts(allProducts, currentProduct);
           }
         }
+      } else if (!currentProduct && allProducts.length === 0) {
+        showErrorState("Product Unavailable", "The requested product specification could not be retrieved from the catalog.");
       }
     } catch (err) {
       console.debug("Live detail fetch note:", err);
+      if (!currentProduct && allProducts.length === 0) {
+        showErrorState("Connection Error", "Could not load product details. Please check your internet connection.");
+      }
     } finally {
       if (window.finishPreloader) window.finishPreloader();
     }
