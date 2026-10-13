@@ -1261,18 +1261,18 @@ select.form-control {
 .product-zoom-modal {
   position: fixed;
   inset: 0;
-  z-index: 9999;
-  display: flex;
+  z-index: 999999;
+  display: none;
   align-items: center;
   justify-content: center;
   opacity: 0;
-  pointer-events: none;
+  touch-action: manipulation;
   transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .product-zoom-modal.active {
+  display: flex;
   opacity: 1;
-  pointer-events: auto;
 }
 
 .product-zoom-backdrop {
@@ -1281,54 +1281,59 @@ select.form-control {
   background: rgba(5, 11, 20, 0.94);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  cursor: zoom-out;
 }
 
 .product-zoom-dialog {
   position: relative;
   z-index: 2;
-  max-width: 92vw;
+  max-width: 95vw;
   max-height: 88vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  pointer-events: auto;
 }
 
 .product-zoom-img-wrap {
   position: relative;
   max-width: 100%;
-  max-height: 82vh;
+  max-height: 84vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .product-zoom-img-wrap img {
-  max-width: 90vw;
+  max-width: 92vw;
   max-height: 82vh;
   object-fit: contain;
   background: #0d1522;
   border: 1px solid var(--border-color);
   border-radius: var(--radius-xs);
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9);
+  cursor: zoom-out;
 }
 
 .product-zoom-close {
-  position: absolute;
-  top: -46px;
-  right: 0;
-  width: 38px;
-  height: 38px;
-  background: var(--bg-surface);
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 1000000;
+  width: 44px;
+  height: 44px;
+  background: rgba(10, 16, 26, 0.92);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-xs);
   color: #ffffff;
-  font-size: 24px;
+  font-size: 26px;
   line-height: 1;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  touch-action: manipulation;
   transition: all var(--transition-fast);
 }
 
@@ -1340,14 +1345,14 @@ select.form-control {
 
 @media (max-width: 640px) {
   .product-zoom-close {
-    top: -40px;
-    right: 4px;
-    width: 34px;
-    height: 34px;
-    font-size: 20px;
+    top: 12px;
+    right: 12px;
+    width: 42px;
+    height: 42px;
+    font-size: 24px;
   }
   .product-zoom-img-wrap img {
-    max-width: 95vw;
-    max-height: 75vh;
+    max-width: 96vw;
+    max-height: 80vh;
   }
 }

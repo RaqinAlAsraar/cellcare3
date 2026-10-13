@@ -515,6 +515,7 @@
   }
 
   function initProductZoom() {
+    const galleryWrap = document.getElementById("galleryMainWrap");
     const mainImg = document.getElementById("detailMainImg");
     const zoomTrigger = document.getElementById("galleryZoomTrigger");
     const modal = document.getElementById("productZoomModal");
@@ -524,23 +525,32 @@
 
     if (!modal || !modalImg) return;
 
-    function openZoom() {
-      if (!mainImg || !mainImg.src) return;
-      modalImg.src = mainImg.src;
-      modalImg.alt = mainImg.alt || "Product Enlarged";
+    function openZoom(e) {
+      if (e) {
+        // Prevent opening if clicking on an interactive badge link
+        if (e.target && e.target.closest && e.target.closest(".gallery-badges-overlay a")) return;
+      }
+      const activeSrc = (mainImg && (mainImg.currentSrc || mainImg.src)) || "";
+      if (!activeSrc) return;
+      modalImg.src = activeSrc;
+      modalImg.alt = (mainImg && mainImg.alt) || "Enlarged Product View";
       modal.classList.add("active");
       modal.setAttribute("aria-hidden", "false");
       document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
     }
 
     function closeZoom() {
       modal.classList.remove("active");
       modal.setAttribute("aria-hidden", "true");
       document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
     }
 
+    if (galleryWrap) {
+      galleryWrap.addEventListener("click", openZoom);
+    }
     if (mainImg) {
-      mainImg.style.cursor = "zoom-in";
       mainImg.addEventListener("click", openZoom);
     }
     if (zoomTrigger) {
@@ -549,8 +559,30 @@
         openZoom();
       });
     }
-    if (closeBtn) closeBtn.addEventListener("click", closeZoom);
-    if (backdrop) backdrop.addEventListener("click", closeZoom);
+
+    if (closeBtn) {
+      closeBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        closeZoom();
+      });
+    }
+    if (backdrop) {
+      backdrop.addEventListener("click", closeZoom);
+    }
+    modal.addEventListener("click", (e) => {
+      // Close when tapping backdrop or outside the enlarged image
+      if (e.target === modal || e.target === backdrop) {
+        closeZoom();
+      }
+    });
+
+    // Also allow tapping the zoomed image to dismiss on mobile
+    if (modalImg) {
+      modalImg.addEventListener("click", (e) => {
+        // Close on direct tap for rapid mobile dismissal
+        closeZoom();
+      });
+    }
 
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && modal.classList.contains("active")) {

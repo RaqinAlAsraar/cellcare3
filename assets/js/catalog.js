@@ -345,6 +345,7 @@
   // ----------------------------------------------------
   function renderCards() {
     if (!container) return;
+    container.classList.toggle("list-view", state.viewMode === "list");
     container.innerHTML = "";
 
     const items = state.filteredProducts;
@@ -667,18 +668,36 @@
     const gridBtn = document.getElementById("viewGridBtn");
     const listBtn = document.getElementById("viewListBtn");
     if (gridBtn && listBtn && container) {
-      gridBtn.addEventListener("click", () => {
-        state.viewMode = "grid";
-        gridBtn.classList.add("active");
-        listBtn.classList.remove("active");
-        container.classList.remove("list-view");
+      const setViewMode = (mode) => {
+        state.viewMode = mode;
+        if (mode === "list") {
+          listBtn.classList.add("active");
+          gridBtn.classList.remove("active");
+          container.classList.add("list-view");
+        } else {
+          gridBtn.classList.add("active");
+          listBtn.classList.remove("active");
+          container.classList.remove("list-view");
+        }
+        try { localStorage.setItem("cellcare_view_mode", mode); } catch (e) {}
+      };
+
+      gridBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        setViewMode("grid");
       });
-      listBtn.addEventListener("click", () => {
-        state.viewMode = "list";
-        listBtn.classList.add("active");
-        gridBtn.classList.remove("active");
-        container.classList.add("list-view");
+      listBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        setViewMode("list");
       });
+
+      // Restore saved view preference
+      try {
+        const savedMode = localStorage.getItem("cellcare_view_mode");
+        if (savedMode === "list") {
+          setViewMode("list");
+        }
+      } catch (e) {}
     }
   }
 

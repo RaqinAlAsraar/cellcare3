@@ -412,20 +412,21 @@
 /* ==========================================================================
    RESPONSIVE CATALOG BREAKPOINTS
    ========================================================================== */
-@media (max-width: 768px) {
+@media (max-width: 991px) {
   .filter-row-primary {
     flex-direction: column;
     align-items: stretch;
-    gap: 10px;
+    gap: 12px;
   }
   .search-input-box {
     width: 100%;
     min-width: 100%;
+    flex: 1 1 100%;
   }
   .filter-selects {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 8px;
+    gap: 10px;
     width: 100%;
   }
   .custom-select {
@@ -437,27 +438,60 @@
   }
   .view-toggle-group {
     grid-column: 2 / 3;
+    display: flex;
     justify-content: center;
+    width: 100%;
+  }
+  .view-btn {
+    flex: 1;
+    min-width: 44px;
+    height: 100%;
   }
 }
 
 @media (max-width: 640px) {
+  .catalog-controls-card {
+    padding: 12px 14px;
+    margin-bottom: 20px;
+  }
+  .search-input-box {
+    height: 52px;
+    width: 100%;
+    min-width: 100%;
+  }
+  .search-input-box svg {
+    left: 14px;
+    width: 20px;
+    height: 20px;
+  }
+  .search-input-box input {
+    font-size: 16px; /* Prevents auto-zoom in mobile Safari */
+    padding: 0 14px 0 46px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .filter-selects {
+    gap: 8px;
+  }
+  .custom-select {
+    height: 44px;
+    font-size: 0.82rem;
+  }
+  .stock-toggle-label {
+    height: 44px;
+    font-size: 0.82rem;
+  }
+  .view-toggle-group {
+    height: 44px;
+  }
+  .view-btn {
+    min-width: 44px;
+  }
+
+  /* Grid View Mode on Mobile: Full-width stacked visual card */
   .products-grid {
     grid-template-columns: 1fr;
     gap: 16px;
-  }
-  .products-grid.list-view .product-card {
-    flex-direction: column;
-  }
-  .products-grid.list-view .product-card-media {
-    width: 100%;
-    aspect-ratio: 16 / 10;
-    border-right: none;
-    border-bottom: 1px solid var(--border-subtle);
-  }
-  .catalog-controls-card {
-    padding: 12px;
-    margin-bottom: 20px;
   }
   .product-card-media {
     aspect-ratio: 16 / 10;
@@ -469,6 +503,106 @@
   .product-card-title {
     font-size: 0.95rem;
   }
+
+  /* List View Mode on Mobile: Compact Industrial Spec Row */
+  .products-grid.list-view {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .products-grid.list-view .product-card {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    min-height: 135px;
+    background: var(--bg-card);
+  }
+  .products-grid.list-view .product-card-media {
+    width: 120px;
+    min-width: 120px;
+    max-width: 120px;
+    aspect-ratio: auto;
+    height: auto;
+    padding: 8px;
+    border-bottom: none;
+    border-right: 1px solid var(--border-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .products-grid.list-view .product-card-badges {
+    top: 6px;
+    left: 6px;
+    gap: 3px;
+  }
+  .products-grid.list-view .product-card-badges .badge {
+    font-size: 0.62rem;
+    padding: 2px 5px;
+  }
+  .products-grid.list-view .product-card-badges .badge:last-child {
+    display: none; /* Keep media clean on narrow screens */
+  }
+  .products-grid.list-view .product-card-content {
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    min-width: 0;
+  }
+  .products-grid.list-view .product-card-category {
+    font-size: 0.68rem;
+    margin-bottom: 2px;
+  }
+  .products-grid.list-view .product-card-title {
+    font-size: 0.88rem;
+    line-height: 1.25;
+    margin-bottom: 4px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .products-grid.list-view .product-card-desc {
+    display: none; /* Compact row without heavy paragraphs */
+  }
+  .products-grid.list-view .product-card-moq {
+    font-size: 0.72rem;
+    margin-bottom: 4px;
+  }
+  .products-grid.list-view .product-card-pricing {
+    margin-bottom: 6px;
+  }
+  .products-grid.list-view .product-price-val {
+    font-size: 1rem;
+  }
+  .products-grid.list-view .product-price-label {
+    display: none;
+  }
+  .products-grid.list-view .product-card-actions {
+    margin-top: 4px;
+  }
+  .products-grid.list-view .card-stepper-row {
+    gap: 6px;
+  }
+  .products-grid.list-view .qty-stepper {
+    height: 32px;
+  }
+  .products-grid.list-view .btn-add-quote {
+    padding: 4px 8px;
+    font-size: 0.76rem;
+    height: 32px;
+  }
+  .products-grid.list-view .card-btn-grid {
+    gap: 6px;
+    margin-top: 6px;
+  }
+  .products-grid.list-view .card-btn-grid .btn {
+    height: 30px;
+    font-size: 0.72rem;
+    padding: 4px 6px;
+  }
+
   .category-chips-bar {
     margin-top: 10px;
     padding-top: 10px;
@@ -486,9 +620,6 @@
   }
   .clear-filters-btn {
     font-size: 0.76rem;
-  }
-  .search-input-box input {
-    font-size: 16px; /* Prevents auto-zoom in mobile Safari */
   }
 }
 
