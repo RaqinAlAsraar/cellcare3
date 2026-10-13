@@ -94,24 +94,34 @@
       if (!targetStr || !Array.isArray(list) || !list.length) return null;
       let norm = "";
       try { norm = decodeURIComponent(targetStr).toLowerCase().trim(); } catch (e) { norm = targetStr.toLowerCase().trim(); }
-      
-      return list.find(p => {
-        const pId = String(p.id || "").toLowerCase();
-        const pSku = String(p.sku || "").toLowerCase();
-        const pSlug = String(p.slug || "").toLowerCase();
-        const pTitle = String(p.title || "").toLowerCase();
-        return (
-          pId === norm ||
-          ("cc-" + pId) === norm ||
-          pSku === norm ||
-          ("cc-" + pSku) === norm ||
-          pSlug === norm ||
-          pTitle === norm ||
-          pTitle.includes(norm) ||
-          norm.includes(pSlug) ||
-          norm.includes(pId)
-        );
-      });
+      const cleanNorm = norm.replace(/^cc-/, "").trim();
+
+      // 1. Exact ID match
+      let match = list.find(p => String(p.id).toLowerCase() === norm || String(p.id).toLowerCase() === cleanNorm);
+      if (match) return match;
+
+      // 2. Exact SKU match
+      if (cleanNorm) {
+        match = list.find(p => p.sku && (String(p.sku).toLowerCase() === norm || String(p.sku).toLowerCase() === cleanNorm));
+        if (match) return match;
+      }
+
+      // 3. Exact Slug match
+      match = list.find(p => p.slug && p.slug.toLowerCase() === norm);
+      if (match) return match;
+
+      // 4. Exact Title match
+      match = list.find(p => p.title && p.title.toLowerCase().trim() === norm);
+      if (match) return match;
+
+      // 5. Normalized Slug match (in case special characters differed)
+      const normSlug = norm.replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+      if (normSlug.length > 3) {
+        match = list.find(p => p.slug && p.slug.toLowerCase() === normSlug);
+        if (match) return match;
+      }
+
+      return null;
     }
 
     let found = null;
@@ -137,12 +147,13 @@
 
         gItems.forEach(p => {
           if (!p.title) return;
-          const k = (p.title || String(p.id)).toLowerCase();
+          const k = String(p.id || p.sku || p.title);
           if (!mergedMap.has(k)) {
             mergedMap.set(k, {
               ...p,
-              id: String(p.id || p.sku || k),
-              slug: p.slug || p.title.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
+              id: String(p.id),
+              sku: String(p.sku || ""),
+              slug: p.slug || p.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, ""),
               title: p.title,
               price: Number(p.price) || 0,
               category: p.category || "General",
@@ -449,7 +460,7 @@
       const priceNum = Number(p.price) || 0;
       const formattedPrice = priceNum ? "₹" + priceNum.toLocaleString("en-IN") : "Contact for Price";
       const imgUrl = p.image_url || "assets/images/hero.svg";
-      const targetParam = p.slug || p.id;
+      const targetParam = String(p.id);
       const detailUrl = "product.html?id=" + encodeURIComponent(targetParam);
       const minQ = parseInt(p.min_quantity || p.moq || 1, 10);
 

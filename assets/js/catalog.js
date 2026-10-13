@@ -169,12 +169,13 @@
         // Ingest Google Sheet live items
         gItems.forEach(p => {
           if (!p.title || !p.title.trim()) return;
-          const k = (p.title || String(p.id)).toLowerCase();
+          const k = String(p.id || p.sku || p.title);
           if (!mergedMap.has(k)) {
             mergedMap.set(k, {
               ...p,
-              id: String(p.id || p.sku || k),
-              slug: p.slug || p.title.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
+              id: String(p.id),
+              sku: String(p.sku || ""),
+              slug: p.slug || p.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, ""),
               title: p.title,
               price: Number(p.price) || 0,
               category: p.category || "General",
@@ -351,7 +352,7 @@
     const isAvailable = p.available !== false;
     const category = p.category || "Lithium-Ion";
 
-    const detailUrl = `product.html?id=${encodeURIComponent(p.slug || p.id || p.title)}`;
+    const detailUrl = `product.html?id=${encodeURIComponent(p.id)}`;
 
     // Get current qty in cart
     const cartItem = window.CellCare ? window.CellCare.cart[p.id] : null;
