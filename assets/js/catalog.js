@@ -176,13 +176,14 @@
           if (!p.title || !p.title.trim()) return;
           const k = (p.slug || p.title || String(p.id)).toLowerCase();
           mergedMap.set(k, {
+            ...p,
             id: String(p.id),
             slug: p.slug || "",
             title: p.title,
             price: Number(p.price) || 0,
             category: p.category || "General",
             image_url: p.image_url || "assets/images/hero.svg",
-            description: p.description || p.mini_desc || (p.title + " - Supplied by Cell Care India."),
+            description: p.description || p.mini_desc || "",
             available: p.available !== false && p.in_stock !== false,
             min_quantity: Number(p.min_quantity) || 1
           });
@@ -197,13 +198,14 @@
           const k = (p.title || String(p.id)).toLowerCase();
           if (!mergedMap.has(k)) {
             mergedMap.set(k, {
+              ...p,
               id: String(p.id || p.sku || k),
               slug: p.slug || p.title.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
               title: p.title,
               price: Number(p.price) || 0,
               category: p.category || "General",
               image_url: p.image_url || "assets/images/hero.svg",
-              description: p.description || (p.title + " - Supplied by Cell Care India."),
+              description: p.description || "",
               available: p.available !== false,
               min_quantity: Number(p.min_quantity || p.moq) || 1
             });

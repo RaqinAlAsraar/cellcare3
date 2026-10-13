@@ -136,13 +136,14 @@
           if (!p.title) return;
           const k = (p.slug || p.title || String(p.id)).toLowerCase();
           mergedMap.set(k, {
+            ...p,
             id: String(p.id),
             slug: p.slug || "",
             title: p.title,
             price: Number(p.price) || 0,
             category: p.category || "General",
             image_url: p.image_url || "assets/images/hero.svg",
-            description: p.description || p.mini_desc || (p.title + " - Supplied by Cell Care India."),
+            description: p.description || p.mini_desc || "",
             available: p.available !== false && p.in_stock !== false,
             min_quantity: Number(p.min_quantity) || 1
           });
@@ -155,13 +156,14 @@
           const k = (p.title || String(p.id)).toLowerCase();
           if (!mergedMap.has(k)) {
             mergedMap.set(k, {
+              ...p,
               id: String(p.id || p.sku || k),
               slug: p.slug || p.title.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
               title: p.title,
               price: Number(p.price) || 0,
               category: p.category || "General",
               image_url: p.image_url || "assets/images/hero.svg",
-              description: p.description || (p.title + " - Supplied by Cell Care India."),
+              description: p.description || "",
               available: p.available !== false,
               min_quantity: Number(p.min_quantity || p.moq) || 1
             });
@@ -219,9 +221,9 @@
   // 2. RENDER DETAILS & INJECT DYNAMIC SEO
   // ----------------------------------------------------
   function renderProductDetails(p) {
-    const title = p.title || "Industrial Battery Unit";
-    const category = p.category || "Lithium-Ion";
-    const desc = p.description || "High-performance Grade-A battery pack engineered with active BMS safety protection.";
+    const title = p.title || "Industrial Product Specification";
+    const category = p.category || "General";
+    const desc = p.description || p.mini_desc || "";
     const priceNum = Number(p.price) || 0;
     const formattedPrice = priceNum ? `₹${priceNum.toLocaleString("en-IN")}` : "Contact for B2B Pricing";
     const minQty = parseInt(p.min_quantity || p.moq || 1, 10);
@@ -229,10 +231,10 @@
     const isAvailable = p.available !== false;
 
     // 1. Update Document Title & SEO Meta Tags
-    document.title = `${title} | Cell Care India Manufacturer`;
+    document.title = `${title} | Cell Care India`;
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
-      metaDesc.content = `Buy or request B2B wholesale quotation for ${title}. ${desc.substring(0, 140)}... High-efficiency Grade-A cells by Cell Care India.`;
+      metaDesc.content = desc ? `${desc.substring(0, 150)}... Official supply by Cell Care India.` : `B2B wholesale pricing and quotation for ${title} from Cell Care India.`;
     }
 
     // 2. Inject Dynamic Schema.org JSON-LD for Search Engines
@@ -254,7 +256,7 @@
       badgeStock.className = `badge ${isAvailable ? "badge-success" : "badge-danger"}`;
       const checkSvg = '<svg class="svg-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>';
       const clockSvg = '<svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>';
-      badgeStock.innerHTML = `${isAvailable ? checkSvg : clockSvg} ${isAvailable ? "In Stock & Ready to Dispatch" : "Pre-Order Lead Time"}`;
+      badgeStock.innerHTML = `${isAvailable ? checkSvg : clockSvg} ${isAvailable ? "In Stock & Ready to Dispatch" : "Advance Order / Lead Time"}`;
     }
 
     const badgeCategory = document.getElementById("detailCategoryBadge");
@@ -265,16 +267,20 @@
     // 5. Update Information Panel
     const catTag = document.getElementById("detailCategoryTag");
     if (catTag) catTag.textContent = category;
+    const catMeta = document.getElementById("detailCategoryMeta");
+    if (catMeta) catMeta.textContent = category;
     const titleEl = document.getElementById("detailTitle");
     if (titleEl) titleEl.textContent = title;
     const skuEl = document.getElementById("detailSku");
-    if (skuEl) skuEl.textContent = `SKU: CC-${p.id || "IND-01"}`;
+    if (skuEl) skuEl.textContent = `SKU: CC-${p.slug || p.sku || p.id || "IND"}`;
     const priceEl = document.getElementById("detailPrice");
     if (priceEl) priceEl.textContent = formattedPrice;
     const descEl = document.getElementById("detailDesc");
-    if (descEl) descEl.textContent = desc;
+    if (descEl) {
+      descEl.textContent = desc || "Official manufacturer product specification by Cell Care India. Direct factory supply with pan-India distribution.";
+    }
     const moqEl = document.getElementById("detailMoqNumber");
-    if (moqEl) moqEl.textContent = `${minQty} Units`;
+    if (moqEl) moqEl.textContent = `${minQty} Unit${minQty > 1 ? "s" : ""}`;
 
     // 6. Stepper Setup
     const stepperInput = document.getElementById("detailQtyInput");
@@ -290,7 +296,7 @@
         if (priceNum > 0 && subtotalText) {
           subtotalText.innerHTML = `Estimated Subtotal: <strong>₹${(qty * priceNum).toLocaleString("en-IN")}</strong> (Excl. Freight)`;
         } else if (subtotalText) {
-          subtotalText.innerHTML = `Order Quantity: <strong>${qty} Units</strong>`;
+          subtotalText.innerHTML = `Order Quantity: <strong>${qty} Unit${qty > 1 ? "s" : ""}</strong>`;
         }
       };
 
@@ -319,7 +325,7 @@
     const addQuoteBtn = document.getElementById("detailAddQuoteBtn");
     if (addQuoteBtn) {
       addQuoteBtn.onclick = () => {
-        const qty = parseInt(stepperInput.value, 10) || minQty;
+        const qty = parseInt(stepperInput ? stepperInput.value : minQty, 10) || minQty;
         if (window.CellCare) {
           window.CellCare.addToCart(p, qty);
         }
@@ -329,8 +335,8 @@
     const waQuoteBtn = document.getElementById("detailWaQuoteBtn");
     if (waQuoteBtn) {
       waQuoteBtn.onclick = () => {
-        const qty = parseInt(stepperInput.value, 10) || minQty;
-        const msg = `Hello Cell Care India! I would like to inquire about:\n\n• Product: *${title}*\n• SKU: *CC-${p.id || "IND"}*\n• Required Quantity: *${qty} Units*\n• Listed Price: *${formattedPrice}*\n\nPlease share availability, bulk discount tiers, and delivery schedule.`;
+        const qty = parseInt(stepperInput ? stepperInput.value : minQty, 10) || minQty;
+        const msg = `Hello Cell Care India! I would like to inquire about:\n\n• Product: *${title}*\n• SKU: *CC-${p.slug || p.sku || p.id || "IND"}*\n• Required Quantity: *${qty} Unit(s)*\n• Listed Price: *${formattedPrice}*\n\nPlease share current stock availability and delivery schedule.`;
         if (window.CellCare && typeof window.CellCare.openWhatsApp === "function") {
           window.CellCare.openWhatsApp(msg);
         } else {
@@ -340,37 +346,59 @@
       };
     }
 
-    // 8. Generate Specifications Table
+    // 8. Generate Specifications Table (Strictly Factual)
     populateSpecificationsTable(p);
   }
 
   // ----------------------------------------------------
-  // 3. SPECIFICATIONS MATRIX GENERATOR
+  // 3. SPECIFICATIONS MATRIX GENERATOR (STRICTLY FACTUAL)
   // ----------------------------------------------------
   function populateSpecificationsTable(p) {
     const tableBody = document.getElementById("detailSpecsTableBody");
     if (!tableBody) return;
 
+    const minQty = parseInt(p.min_quantity || p.moq || 1, 10);
+    const priceNum = Number(p.price) || 0;
+
     const specs = [
-      { label: "Product Title", value: p.title || "Industrial EV Component" },
-      { label: "Product Category", value: p.category || "EV & Battery Component" },
-      { label: "Part Reference / SKU", value: `CC-${p.slug || p.sku || p.id || "IND-01"}` },
-      { label: "Stock Availability", value: p.available !== false ? "Verified In-Stock (Pan-India Dispatch)" : "Available on Advance Order" },
-      { label: "Minimum Order Quantity (MOQ)", value: `${p.min_quantity || 1} Unit(s)` },
-      { label: "Quality Grading", value: "100% Verified Grade-A Industrial Quality" },
-      { label: "Inspection & Testing", value: "Impedance, Voltage & Continuity Bench Tested Prior to Dispatch" },
-      { label: "Packaging Standards", value: "Anti-Static Protective Cushioning & Heavy-Duty Crating" },
-      { label: "Commercial Warranty", value: "Direct Manufacturer Replacement & Technical Support Backed" }
+      { label: "Product Name", value: p.title || "Industrial Unit" },
+      { label: "Category", value: p.category || "General" },
+      { label: "Part Reference / SKU", value: `CC-${p.slug || p.sku || p.id || "IND"}` },
+      { label: "Minimum Order Quantity (MOQ)", value: `${minQty} Unit${minQty > 1 ? "s" : ""}` },
+      { label: "Stock Availability", value: p.available !== false ? "In Stock (Pan-India Dispatch)" : "Available on Advance Order" }
     ];
 
-    if (p.voltage) specs.splice(2, 0, { label: "Operating Voltage", value: p.voltage });
-    if (p.capacity) specs.splice(3, 0, { label: "Rated Capacity", value: p.capacity });
-    if (p.chemistry) specs.splice(4, 0, { label: "Cell Chemistry", value: p.chemistry });
+    if (priceNum > 0) {
+      specs.push({ label: "Listed Wholesale Price", value: `₹${priceNum.toLocaleString("en-IN")} / Unit` });
+    }
+
+    // Factual client attributes from Google Sheet / Artfy
+    if (p.voltage) specs.push({ label: "Voltage", value: String(p.voltage) });
+    if (p.capacity) specs.push({ label: "Capacity", value: String(p.capacity) });
+    if (p.chemistry) specs.push({ label: "Chemistry", value: String(p.chemistry) });
+    if (p.model) specs.push({ label: "Model / Series", value: String(p.model) });
+    if (p.brand) specs.push({ label: "Brand / Make", value: String(p.brand) });
+    if (p.dimensions) specs.push({ label: "Dimensions", value: String(p.dimensions) });
+    if (p.weight) specs.push({ label: "Weight", value: String(p.weight) });
+    if (p.warranty) specs.push({ label: "Warranty", value: String(p.warranty) });
+    if (p.material) specs.push({ label: "Material / Casing", value: String(p.material) });
+
+    // Handle any key-value pairs inside custom specs object if provided by client
+    if (p.specs && typeof p.specs === "object") {
+      Object.entries(p.specs).forEach(([k, v]) => {
+        if (v && typeof v !== "object") {
+          const readableKey = k.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+          if (!specs.some(s => s.label.toLowerCase() === readableKey.toLowerCase())) {
+            specs.push({ label: readableKey, value: String(v) });
+          }
+        }
+      });
+    }
 
     tableBody.innerHTML = specs.map(s => `
       <tr>
-        <th style="width:38%;">${escapeHtml(s.label)}</th>
-        <td>${escapeHtml(s.value)}</td>
+        <td style="width:38%; text-align:left; padding:12px 14px; color:var(--text-muted); font-weight:500; border-right:1px solid var(--border-subtle);">${escapeHtml(s.label)}</td>
+        <td style="padding:12px 14px; color:#ffffff; font-family:var(--font-mono); font-weight:600;">${escapeHtml(s.value)}</td>
       </tr>
     `).join("");
   }
@@ -500,6 +528,7 @@
   function initTabs() {
     const tabBtns = document.querySelectorAll(".tab-btn");
     const tabPanes = document.querySelectorAll(".tab-pane");
+    if (!tabBtns.length) return;
 
     tabBtns.forEach(btn => {
       btn.addEventListener("click", () => {

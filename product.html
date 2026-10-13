@@ -132,21 +132,17 @@
         <!-- Right: Information & Purchasing Actions -->
         <div class="product-info-panel">
           <span id="detailCategoryTag" class="product-detail-cat"><span class="skeleton-pill skeleton-shimmer" style="display:inline-block; width:90px; height:18px;"></span></span>
-          <h1 id="detailTitle" class="product-detail-title"><span class="skeleton-title-bar skeleton-shimmer" style="display:block; height:32px; width:75%;"></span></h1>
-
-          <div class="product-detail-meta">
+          <h1 id="detailTitle" class="product-detail-title"><span class="skeleton-title-bar skeleton-shimmer" style="display:block; height:32px; width:75%;"></span></h1>          <div class="product-detail-meta">
             <span id="detailSku" style="color:var(--text-faint); font-weight:600; font-family:var(--font-mono);">SKU: CC-IND</span>
             <span>•</span>
-            <span style="color:var(--accent-primary);"><svg class="svg-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> Grade-A Cells</span>
-            <span>•</span>
-            <span style="color:var(--text-muted);"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg> Active BMS Protected</span>
+            <span id="detailCategoryMeta" style="color:var(--accent-primary); font-weight:600;">Lithium-Ion</span>
           </div>
 
           <!-- Price Display -->
           <div class="product-detail-price-box">
             <div>
               <div id="detailPrice" class="price-main-val"><span class="skeleton-price-bar skeleton-shimmer" style="display:block; height:34px; width:45%;"></span></div>
-              <div class="price-note">GST inclusive • Ex-factory commercial wholesale pricing</div>
+              <div class="price-note">Direct wholesale quotation &amp; ex-factory pricing</div>
             </div>
             <div>
               <span class="badge badge-success"><svg class="svg-icon" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg> Pan-India Dispatch</span>
@@ -163,8 +159,7 @@
           <div class="moq-callout-box">
             <svg class="svg-icon" style="color:var(--accent-primary); width:20px; height:20px;" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
             <div>
-              <h5>Minimum Order Quantity: <span id="detailMoqNumber" style="color:var(--accent-primary);">1 Unit</span></h5>
-              <p>Sample test units available for OEM &amp; R&amp;D engineering trials. Volume tier discounts applied automatically on bulk orders.</p>
+              <h5 style="margin:0; font-size:0.92rem; color:#ffffff;">Minimum Order Quantity: <span id="detailMoqNumber" style="color:var(--accent-primary); font-weight:700;">1 Unit</span></h5>
             </div>
           </div>
 
@@ -192,84 +187,23 @@
             </div>
           </div>
 
-          <!-- Trust Perks Checklist -->
-          <div class="product-perks-list">
-            <div class="perk-item"><svg class="svg-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> 100% Grade A Prismatic Cells</div>
-            <div class="perk-item"><svg class="svg-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Smart Programmable Active BMS</div>
-            <div class="perk-item"><svg class="svg-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Up to 36 Months Warranty</div>
-            <div class="perk-item"><svg class="svg-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Laser-Welded Pure Copper Busbars</div>
-          </div>
-
         </div>
 
       </section>
 
-      <!-- SPECIFICATIONS TABS -->
-      <section class="product-tabs-section">
-        <nav class="tabs-nav" aria-label="Product Tabs">
-          <button class="tab-btn active" data-tab="tabSpecs">Technical Specifications</button>
-          <button class="tab-btn" data-tab="tabApps">Compatible Applications</button>
-          <button class="tab-btn" data-tab="tabSafety">BMS &amp; Safety Features</button>
-          <button class="tab-btn" data-tab="tabShipping">Logistics &amp; Warranty Terms</button>
-        </nav>
-
-        <!-- Tab 1: Specs -->
-        <div id="tabSpecs" class="tab-pane active">
-          <table class="specs-table">
-            <tbody id="detailSpecsTableBody">
-              <!-- Dynamically populated by product-detail.js -->
-            </tbody>
-          </table>
+      <!-- PRODUCT SPECIFICATIONS SECTION -->
+      <section class="product-tabs-section" id="productSpecsSection">
+        <div class="section-tag" style="margin-bottom:12px;">
+          <svg class="svg-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          SPECIFICATION SHEET
         </div>
+        <h3 class="section-title" style="font-size:1.55rem; margin-bottom:20px;">Technical <span>Specifications &amp; Overview</span></h3>
 
-        <!-- Tab 2: Applications -->
-        <div id="tabApps" class="tab-pane">
-          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:20px;">
-            <div style="background:var(--bg-surface); padding:20px; border-radius:var(--radius-xs); border:1px solid var(--border-subtle);">
-              <h4 style="color:#ffffff; margin-bottom:8px; display:flex; align-items:center; gap:8px;">
-                <svg class="svg-icon" style="color:var(--accent-primary);" viewBox="0 0 24 24"><circle cx="5" cy="17" r="3"></circle><circle cx="19" cy="17" r="3"></circle><path d="M5 14h5l3-6h4"></path><line x1="9" y1="14" x2="15" y2="8"></line></svg>
-                Electric 2-Wheelers
-              </h4>
-              <p style="font-size:0.88rem; color:var(--text-muted);">High continuous discharge rate engineered for high-speed electric scooters and motorcycles.</p>
-            </div>
-            <div style="background:var(--bg-surface); padding:20px; border-radius:var(--radius-xs); border:1px solid var(--border-subtle);">
-              <h4 style="color:#ffffff; margin-bottom:8px; display:flex; align-items:center; gap:8px;">
-                <svg class="svg-icon" style="color:var(--accent-cyan);" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
-                E-Rickshaws &amp; 3-Wheelers
-              </h4>
-              <p style="font-size:0.88rem; color:var(--text-muted);">Ruggedized shock-resistant mechanical casing designed for heavy payload passenger and cargo transport.</p>
-            </div>
-            <div style="background:var(--bg-surface); padding:20px; border-radius:var(--radius-xs); border:1px solid var(--border-subtle);">
-              <h4 style="color:#ffffff; margin-bottom:8px; display:flex; align-items:center; gap:8px;">
-                <svg class="svg-icon" style="color:var(--accent-amber);" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-                Solar ESS &amp; Off-Grid
-              </h4>
-              <p style="font-size:0.88rem; color:var(--text-muted);">Ultra-deep cycle life (3000+ cycles @ 80% DoD) for commercial solar setups and residential inverters.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tab 3: Safety -->
-        <div id="tabSafety" class="tab-pane">
-          <p style="color:var(--text-muted); margin-bottom:16px;">
-            Every Cell Care India battery module is equipped with an integrated Active Battery Management System (BMS) calibrated to Indian environmental extremes:
-          </p>
-          <ul style="list-style:none; display:flex; flex-direction:column; gap:12px; font-size:0.92rem; color:#ffffff;">
-            <li style="display:flex; align-items:flex-start; gap:8px;"><svg class="svg-icon" style="color:var(--accent-primary); flex-shrink:0; margin-top:2px;" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg> <div><strong>Over-Charge &amp; Over-Discharge Cutoff:</strong> Protects individual cell voltage integrity.</div></li>
-            <li style="display:flex; align-items:flex-start; gap:8px;"><svg class="svg-icon" style="color:var(--accent-primary); flex-shrink:0; margin-top:2px;" viewBox="0 0 24 24"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"></path></svg> <div><strong>Thermal Runaway Prevention:</strong> High-precision NTC temperature probes trigger shutdown above safe thresholds.</div></li>
-            <li style="display:flex; align-items:flex-start; gap:8px;"><svg class="svg-icon" style="color:var(--accent-primary); flex-shrink:0; margin-top:2px;" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg> <div><strong>Short-Circuit Protection:</strong> Ultra-fast MOSFET cut-off prevents catastrophic surges.</div></li>
-            <li style="display:flex; align-items:flex-start; gap:8px;"><svg class="svg-icon" style="color:var(--accent-primary); flex-shrink:0; margin-top:2px;" viewBox="0 0 24 24"><line x1="12" y1="3" x2="12" y2="21"></line><path d="M5 21h14"></path><path d="M4 7l4 8h-8z"></path><path d="M20 7l4 8h-8z"></path></svg> <div><strong>Active Cell Balancing:</strong> Equalizes cell charge during every charge cycle, maximizing battery lifespan.</div></li>
-          </ul>
-        </div>
-
-        <!-- Tab 4: Shipping -->
-        <div id="tabShipping" class="tab-pane">
-          <p style="color:var(--text-muted); line-height:1.7;">
-            • <strong>Insured Logistics:</strong> All battery consignments are shipped via hazardous-certified surface freight with protective wooden crating.<br>
-            • <strong>Testing Certificates:</strong> Factory cell capacity grading and BMS impedance test reports provided with every shipment.<br>
-            • <strong>Warranty Claim:</strong> Direct pan-India replacement and service support backed by Cell Care India engineering center.
-          </p>
-        </div>
+        <table class="specs-table">
+          <tbody id="detailSpecsTableBody">
+            <!-- Dynamically populated strictly from client product data -->
+          </tbody>
+        </table>
       </section>
 
       <!-- RELATED PRODUCTS SECTION -->
