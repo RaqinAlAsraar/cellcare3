@@ -158,41 +158,15 @@
 
   async function syncWithLiveApi(isBackground) {
     try {
-      const artifyUrl = (window.CELLCARE_CONFIG && window.CELLCARE_CONFIG.artifyProductsApi) || "https://artifyscreens.pythonanywhere.com/api/products/";
       const gsheetUrl = (window.CELLCARE_CONFIG && window.CELLCARE_CONFIG.productsApi) || "https://script.google.com/macros/s/AKfycbzPASrJpC5dvoFX-R6zX1AfW-pFyg8DIM6D_p9DG4QSI16qyymFXzibseq1rA9r_f-j2g/exec";
+      const res = await fetch(`${gsheetUrl}?page=1&page_size=100`);
 
-      const promises = [
-        fetch(`${artifyUrl}?page=1&page_size=100`).then(r => r.ok ? r.json() : null).catch(() => null),
-        fetch(`${gsheetUrl}?page=1&page_size=100`).then(r => r.ok ? r.json() : null).catch(() => null),
-        fetch("https://artifyscreens.pythonanywhere.com/api/categories/").then(r => r.ok ? r.json() : null).catch(() => null)
-      ];
+      if (res && res.ok) {
+        const gsheetData = await res.json();
+        const gItems = (gsheetData && (gsheetData.items || gsheetData.results)) || [];
+        const mergedMap = new Map();
 
-      const [artifyData, gsheetData, catData] = await Promise.all(promises);
-      const mergedMap = new Map();
-
-      // Ingest live Artifyscreens products
-      if (artifyData && Array.isArray(artifyData.items)) {
-        artifyData.items.forEach(p => {
-          if (!p.title || !p.title.trim()) return;
-          const k = (p.slug || p.title || String(p.id)).toLowerCase();
-          mergedMap.set(k, {
-            ...p,
-            id: String(p.id),
-            slug: p.slug || "",
-            title: p.title,
-            price: Number(p.price) || 0,
-            category: p.category || "General",
-            image_url: p.image_url || "assets/images/hero.svg",
-            description: p.description || p.mini_desc || "",
-            available: p.available !== false && p.in_stock !== false,
-            min_quantity: Number(p.min_quantity) || 1
-          });
-        });
-      }
-
-      // Ingest Google Sheet live items
-      if (gsheetData) {
-        const gItems = gsheetData.items || gsheetData.results || [];
+        // Ingest Google Sheet live items
         gItems.forEach(p => {
           if (!p.title || !p.title.trim()) return;
           const k = (p.title || String(p.id)).toLowerCase();
@@ -211,33 +185,34 @@
             });
           }
         });
+
+        if (mergedMap.size > 0) {
+          state.products = Array.from(mergedMap.values());
+
+          try {
+            sessionStorage.setItem(CACHE_KEY, JSON.stringify({ items: state.products }));
+          } catch (e) {}
+
+          extractCategoriesFromProducts();
+          populateCategoryFilters();
+          applyFiltersAndRender();
+          if (window.finishPreloader) window.finishPreloader();
+          return;
+        }
       }
 
-      if (mergedMap.size > 0) {
-        state.products = Array.from(mergedMap.values());
-
-        try {
-          sessionStorage.setItem(CACHE_KEY, JSON.stringify({ items: state.products }));
-        } catch (e) {}
-
-        if (catData && Array.isArray(catData.categories)) {
-          const catMap = new Map();
-          catData.categories.forEach(c => {
-            if (c && c.name) catMap.set(c.slug || c.name.toLowerCase(), { name: c.name, slug: c.slug });
-          });
-          state.products.forEach(p => {
-            if (p.category) {
-              const sl = p.category.toLowerCase().replace(/\s+/g, "-");
-              if (!catMap.has(sl)) catMap.set(sl, { name: p.category, slug: sl });
-            }
-          });
-          state.categories = Array.from(catMap.values());
-        } else {
-          extractCategoriesFromProducts();
-        }
-
-        populateCategoryFilters();
-        applyFiltersAndRender();
+      if (!isBackground && state.products.length === 0) {
+        renderFetchError();
+        if (window.finishPreloader) window.finishPreloader();
+      }
+    } catch (e) {
+      console.debug("Catalog sync note:", e);
+      if (!isBackground && state.products.length === 0) {
+        renderFetchError();
+        if (window.finishPreloader) window.finishPreloader();
+      }
+    }
+  }
         if (window.finishPreloader) window.finishPreloader();
       } else {
         if (!isBackground && state.products.length === 0) {

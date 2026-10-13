@@ -105,52 +105,16 @@
       }
     }
 
-    // 3. Concurrently fetch fresh product details directly from backend APIs
+    // 3. Concurrently fetch fresh product details directly from live Google Sheets API
     try {
-      if (target) {
-        const directRes = await fetch("https://artifyscreens.pythonanywhere.com/api/products/" + encodeURIComponent(target) + "/").catch(() => null);
-        if (directRes && directRes.ok) {
-          const directItem = await directRes.json();
-          if (directItem && directItem.title) {
-            currentProduct = directItem;
-            clearDetailSkeleton();
-            renderProductDetails(directItem);
-            fetchRelatedLiveCatalog(directItem);
-            return;
-          }
-        }
-      }
-
-      // Fetch master catalog to resolve product & related items
-      const artifyUrl = (window.CELLCARE_CONFIG && window.CELLCARE_CONFIG.artifyProductsApi) || "https://artifyscreens.pythonanywhere.com/api/products/";
       const gsheetUrl = (window.CELLCARE_CONFIG && window.CELLCARE_CONFIG.productsApi) || "https://script.google.com/macros/s/AKfycbzPASrJpC5dvoFX-R6zX1AfW-pFyg8DIM6D_p9DG4QSI16qyymFXzibseq1rA9r_f-j2g/exec";
 
-      const [artifyRes, gsheetRes] = await Promise.all([
-        fetch(`${artifyUrl}?page=1&page_size=100`).then(r => r.ok ? r.json() : null).catch(() => null),
-        fetch(`${gsheetUrl}?page=1&page_size=100`).then(r => r.ok ? r.json() : null).catch(() => null)
-      ]);
+      const gsheetRes = await fetch(`${gsheetUrl}?page=1&page_size=100`).then(r => r.ok ? r.json() : null).catch(() => null);
 
-      const mergedMap = new Map();
-      if (artifyRes && Array.isArray(artifyRes.items)) {
-        artifyRes.items.forEach(p => {
-          if (!p.title) return;
-          const k = (p.slug || p.title || String(p.id)).toLowerCase();
-          mergedMap.set(k, {
-            ...p,
-            id: String(p.id),
-            slug: p.slug || "",
-            title: p.title,
-            price: Number(p.price) || 0,
-            category: p.category || "General",
-            image_url: p.image_url || "assets/images/hero.svg",
-            description: p.description || p.mini_desc || "",
-            available: p.available !== false && p.in_stock !== false,
-            min_quantity: Number(p.min_quantity) || 1
-          });
-        });
-      }
       if (gsheetRes) {
         const gItems = gsheetRes.items || gsheetRes.results || [];
+        const mergedMap = new Map();
+
         gItems.forEach(p => {
           if (!p.title) return;
           const k = (p.title || String(p.id)).toLowerCase();
@@ -169,30 +133,30 @@
             });
           }
         });
-      }
 
-      allProducts = Array.from(mergedMap.values());
-      if (allProducts.length) {
-        try { sessionStorage.setItem(CACHE_KEY, JSON.stringify({ items: allProducts })); } catch (e) {}
+        allProducts = Array.from(mergedMap.values());
+        if (allProducts.length) {
+          try { sessionStorage.setItem(CACHE_KEY, JSON.stringify({ items: allProducts })); } catch (e) {}
 
-        if (target) {
-          found = allProducts.find(p =>
-            (p.slug && p.slug.toLowerCase() === target.toLowerCase()) ||
-            String(p.id).toLowerCase() === target.toLowerCase() ||
-            (p.title && p.title.toLowerCase().includes(target.toLowerCase()))
-          );
-        }
+          if (target) {
+            found = allProducts.find(p =>
+              (p.slug && p.slug.toLowerCase() === target.toLowerCase()) ||
+              String(p.id).toLowerCase() === target.toLowerCase() ||
+              (p.title && p.title.toLowerCase().includes(target.toLowerCase()))
+            );
+          }
 
-        if (found) {
-          currentProduct = found;
-          clearDetailSkeleton();
-          renderProductDetails(found);
-          loadRelatedProducts(allProducts, found);
-        } else if (allProducts[0]) {
-          currentProduct = allProducts[0];
-          clearDetailSkeleton();
-          renderProductDetails(currentProduct);
-          loadRelatedProducts(allProducts, currentProduct);
+          if (found) {
+            currentProduct = found;
+            clearDetailSkeleton();
+            renderProductDetails(found);
+            loadRelatedProducts(allProducts, found);
+          } else if (allProducts[0]) {
+            currentProduct = allProducts[0];
+            clearDetailSkeleton();
+            renderProductDetails(currentProduct);
+            loadRelatedProducts(allProducts, currentProduct);
+          }
         }
       }
     } catch (err) {
@@ -200,20 +164,6 @@
     } finally {
       if (window.finishPreloader) window.finishPreloader();
     }
-  }
-
-  async function fetchRelatedLiveCatalog(current) {
-    try {
-      const artifyUrl = (window.CELLCARE_CONFIG && window.CELLCARE_CONFIG.artifyProductsApi) || "https://artifyscreens.pythonanywhere.com/api/products/";
-      const res = await fetch(`${artifyUrl}?page=1&page_size=50`);
-      if (res.ok) {
-        const data = await res.json();
-        const items = data.items || [];
-        if (items.length) {
-          loadRelatedProducts(items, current);
-        }
-      }
-    } catch (e) {}
   }
 
 

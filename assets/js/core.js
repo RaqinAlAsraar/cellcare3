@@ -26,37 +26,22 @@
     },
 
     // ----------------------------------------------------
-    // 2. CONFIG LOADER (PYTHONANYWHERE REST API)
+    // 2. CONFIG LOADER (STATIC VERIFIED PROFILE)
     // ----------------------------------------------------
-    loadSiteConfig: async function () {
-      // 1. Try local cache first for instant rendering
-      try {
-        const cached = localStorage.getItem(CONFIG_STORAGE_KEY);
-        if (cached) {
-          this.siteConfig = JSON.parse(cached);
-          this.applyConfigToDOM(this.siteConfig);
+    loadSiteConfig: function () {
+      const cfg = (window.CELLCARE_CONFIG && window.CELLCARE_CONFIG.fallback) || {
+        phone: "+91 85059 10581",
+        whatsapp: "918505910581",
+        email: "CellCareIndia2025@gmail.com",
+        address: "Shop No. 4, B-32, New Brij Puri, Near Jagatpuri police Station, New Delhi - 110051",
+        social: {
+          linkedin: "https://www.linkedin.com/in/cell-care-india-931736398",
+          facebook: "https://www.facebook.com/profile.php?id=61567162763508&mibextid=ZbWKwL",
+          instagram: "https://instagram.com/cellcare_india"
         }
-      } catch (e) {
-        console.warn("Config cache read error", e);
-      }
-
-      // 2. Fresh fetch in background
-      try {
-        const base = window.CELLCARE_CONFIG ? window.CELLCARE_CONFIG.siteApi : "https://artifyscreens.pythonanywhere.com";
-        const res = await fetch(`${base}/api/config/`, { method: "GET", mode: "cors" });
-        if (res.ok) {
-          const data = await res.json();
-          this.siteConfig = data;
-          localStorage.setItem(CONFIG_STORAGE_KEY, JSON.stringify(data));
-          this.applyConfigToDOM(data);
-        }
-      } catch (err) {
-        console.warn("Could not fetch fresh site config, using fallback/cache", err);
-        if (!this.siteConfig && window.CELLCARE_CONFIG) {
-          this.siteConfig = window.CELLCARE_CONFIG.fallback;
-          this.applyConfigToDOM(this.siteConfig);
-        }
-      }
+      };
+      this.siteConfig = cfg;
+      this.applyConfigToDOM(cfg);
     },
 
     applyConfigToDOM: function (cfg) {

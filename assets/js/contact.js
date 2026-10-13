@@ -53,22 +53,6 @@
         window.location.href = url;
       }
 
-      // 2. Concurrently submit to PythonAnywhere API in background (archiving)
-      try {
-        const base = window.CELLCARE_CONFIG ? window.CELLCARE_CONFIG.siteApi : "https://artifyscreens.pythonanywhere.com";
-        fetch(`${base}/api/contact/`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: `${name} [${category}]`,
-            email: email || phone,
-            message: message
-          })
-        }).catch(err => console.debug("Background backend log ignored:", err));
-      } catch (e) {
-        // Ignored to guarantee zero disruption to user WhatsApp chat
-      }
-
       form.reset();
     });
   }
