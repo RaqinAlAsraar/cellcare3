@@ -505,6 +505,90 @@ select.form-control {
 }
 
 /* ==========================================================================
+   GLOBAL QTY STEPPER & UTILITY GRIDS
+   ========================================================================== */
+.qty-stepper {
+  display: inline-flex;
+  align-items: center;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xs);
+  height: 38px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.stepper-btn {
+  width: 32px;
+  height: 100%;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition-fast), color var(--transition-fast);
+  padding: 0;
+  margin: 0;
+}
+
+.stepper-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--accent-primary);
+}
+
+.stepper-input {
+  width: 38px;
+  height: 100%;
+  background: transparent;
+  border: none;
+  border-left: 1px solid var(--border-subtle);
+  border-right: 1px solid var(--border-subtle);
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-align: center;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Responsive Structural Grids */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.calc-inputs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.contact-grid-layout {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 28px;
+  align-items: flex-start;
+}
+
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+/* ==========================================================================
    CARDS & PANELS (SHARP ARCHITECTURAL CELLS)
    ========================================================================== */
 .card, .panel {
@@ -913,9 +997,9 @@ select.form-control {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
-  gap: 40px;
-  margin-bottom: 40px;
+  grid-template-columns: 1.6fr 1fr 1.4fr;
+  gap: 36px;
+  margin-bottom: 36px;
 }
 
 .footer-brand p {
@@ -1076,24 +1160,78 @@ select.form-control {
   }
 }
 
+@media (max-width: 860px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .contact-grid-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
 @media (max-width: 640px) {
   :root {
     --nav-height: 54px;
-    --gutter-desktop: 16px;
+    --gutter-desktop: 14px;
+  }
+  .container {
+    padding-left: 14px;
+    padding-right: 14px;
   }
   .section {
-    padding: 48px 0;
+    padding: 38px 0;
   }
   .section-title {
-    font-size: 1.65rem;
+    font-size: 1.55rem;
+    line-height: 1.25;
+  }
+  .section-subtitle {
+    font-size: 0.88rem;
+    line-height: 1.55;
+  }
+  .calc-inputs-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .form-grid-2 {
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
   .footer-grid {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 26px;
   }
   .footer-bottom {
     flex-direction: column;
     gap: 12px;
     text-align: center;
+  }
+  .brand-logo {
+    font-size: 1.05rem;
+    gap: 8px;
+  }
+  .brand-icon-box {
+    width: 28px;
+    height: 28px;
+  }
+  .cart-pill-btn {
+    padding: 0 9px;
+    height: 34px;
+    gap: 6px;
+  }
+  .cart-pill-btn span:not(.cart-badge) {
+    display: none;
+  }
+  .hamburger-btn {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+@media (max-width: 420px) {
+  .brand-tag {
+    display: none;
   }
 }
