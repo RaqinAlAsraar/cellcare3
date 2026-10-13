@@ -17,6 +17,8 @@ updated: 2026-10-13T16:36:00+05:30
    - Fixed hero grid stacking on mobile screens (`.hero-grid` single-column fallback).
    - Fixed calculator inputs grid stacking on mobile screens (`.calc-inputs-grid` single-column fallback).
    - Fixed 2-column contact form and details stacking on mobile screens (`.contact-grid-layout` and `.form-grid-2`).
+   - Removed `SYS // ONLINE` top status ticker completely for a sleek minimal header.
+   - Removed duplicate nested cart button from `product.html` header navbar.
 2. **Fixed Products Page CSS Issues:**
    - Overhauled `.product-card-actions` with structured 2-row layout:
      - Row 1: `.card-stepper-row` (exact 100px stepper + full-flex "Add to Quote" button).
