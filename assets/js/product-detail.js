@@ -451,11 +451,15 @@
       const imgUrl = p.image_url || "assets/images/hero.svg";
       const targetParam = p.slug || p.id;
       const detailUrl = "product.html?id=" + encodeURIComponent(targetParam);
+      const minQ = parseInt(p.min_quantity || p.moq || 1, 10);
 
       const card = document.createElement("article");
       card.className = "product-card";
       card.style.cursor = "pointer";
       card.style.boxShadow = "var(--shadow-sm)";
+
+      const infoIcon = (window.CellCare && window.CellCare.svg && window.CellCare.svg.info) || '<svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>';
+      const cartIcon = (window.CellCare && window.CellCare.svg && window.CellCare.svg.cart) || '<svg class="svg-icon" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>';
 
       card.innerHTML = `
         <div class="product-card-media" style="aspect-ratio: 4/3;">
@@ -469,20 +473,58 @@
           <div style="font-size: 1.15rem; font-weight: 800; color: var(--accent-primary); margin: 8px 0 14px 0;">
             ${formattedPrice}
           </div>
-          <a href="${detailUrl}" class="btn btn-secondary btn-sm" style="width: 100%;">
-            ${(window.CellCare && window.CellCare.svg && window.CellCare.svg.info) || '<svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>'} View Specs
-          </a>
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 8px; width: 100%;">
+            <a href="${detailUrl}" class="btn btn-secondary btn-sm btn-related-view" style="width: 100%; justify-content: center;">
+              ${infoIcon} Specs
+            </a>
+            <button type="button" class="btn btn-primary btn-sm btn-related-quote" style="width: 100%; justify-content: center;">
+              ${cartIcon} Quote
+            </button>
+          </div>
         </div>
       `;
 
-      card.addEventListener("click", () => {
-        window.location.href = detailUrl;
+      function openRelatedProduct(e) {
+        if (e) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+        if (window.history && window.history.pushState) {
+          window.history.pushState({ id: targetParam }, "", detailUrl);
+        } else {
+          window.location.href = detailUrl;
+        }
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        loadProduct();
+      }
+
+      // 1. Click on card (excluding quote button) navigates to product
+      card.addEventListener("click", (e) => {
+        if (e.target && e.target.closest && e.target.closest(".btn-related-quote")) return;
+        openRelatedProduct(e);
       });
 
-      const btnLink = card.querySelector("a.btn");
-      if (btnLink) {
-        btnLink.addEventListener("click", (e) => {
+      // 2. Click "Specs" button navigates smoothly
+      const viewBtn = card.querySelector(".btn-related-view");
+      if (viewBtn) {
+        viewBtn.addEventListener("click", openRelatedProduct);
+      }
+
+      // 3. Click title link navigates smoothly
+      const titleLink = card.querySelector(".product-card-title a");
+      if (titleLink) {
+        titleLink.addEventListener("click", openRelatedProduct);
+      }
+
+      // 4. Click "Quote" button adds to quotation cart
+      const quoteBtn = card.querySelector(".btn-related-quote");
+      if (quoteBtn) {
+        quoteBtn.addEventListener("click", (e) => {
+          e.preventDefault();
           e.stopPropagation();
+          if (window.CellCare && typeof window.CellCare.addToCart === "function") {
+            window.CellCare.addToCart(p, minQ);
+          }
         });
       }
 
