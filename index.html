@@ -641,6 +641,7 @@
         const priceNum = Number(p.price) || 0;
         const formattedPrice = priceNum ? `₹${priceNum.toLocaleString("en-IN")}` : "Contact for Price";
         const imgUrl = p.image_url || "assets/images/hero.svg";
+        const minQty = parseInt(p.min_quantity || p.moq || 1, 10);
         const detailUrl = `product.html?id=${encodeURIComponent(p.id)}`;
         const escape = window.CellCare ? window.CellCare.escapeHtml : (str => String(str || ""));
 
