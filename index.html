@@ -81,9 +81,9 @@
 
 <body>
 
-  <!-- Top Announcement Bar -->
-  <div style="background: linear-gradient(90deg, #022c16 0%, #064e2b 50%, #031e11 100%); border-bottom: 1px solid rgba(0,255,127,0.2); padding: 8px 16px; font-size: 0.82rem; text-align: center; color: #a7f3d0; font-weight: 500;">
-    <span>⚡ <strong>ISO 9001:2015 Certified</strong> Manufacturer • Grade-A LiFePO4 &amp; NMC Cells • Pan-India Insured Dispatch • Direct B2B Wholesale Pricing</span>
+  <!-- Top Technical Status Ticker -->
+  <div style="background: var(--bg-surface); border-bottom: 1px solid var(--border-subtle); padding: 7px 16px; font-family: var(--font-mono); font-size: 0.74rem; text-align: center; color: var(--text-muted);">
+    <span style="color: var(--accent-primary);">SYS // ONLINE</span> • ISO 9001:2015 CERTIFIED • GRADE-A LiFePO4 &amp; NMC CELLS • PAN-INDIA DISPATCH • DIRECT FACTORY WHOLESALE
   </div>
 
   <!-- SITE HEADER & NAVBAR -->
@@ -93,7 +93,7 @@
         <!-- Brand Logo -->
         <a href="index.html" class="brand-logo" aria-label="Cell Care India Home">
           <div class="brand-icon-box">
-            <i class="fa-solid fa-bolt-lightning"></i>
+            <svg class="svg-icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
           </div>
           <span class="brand-name">CELL CARE <span class="brand-tag">INDIA</span></span>
         </a>
@@ -111,18 +111,18 @@
         <!-- Action Items: Quote Cart & WhatsApp Trigger -->
         <div class="nav-actions">
           <button class="cart-pill-btn open-quote-drawer" title="View Quotation Cart">
-            <i class="fa-solid fa-file-invoice"></i>
+            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
             <span>Quote Cart</span>
             <span class="cart-badge cart-count-badge" style="display:none;">0</span>
           </button>
 
           <button class="btn-whatsapp-nav" onclick="CellCare.openWhatsApp('Hello Cell Care India! I would like to inquire about battery packs.')">
-            <i class="fa-brands fa-whatsapp"></i>
+            <svg class="svg-icon" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             <span>WhatsApp</span>
           </button>
 
           <button id="hamburgerBtn" class="hamburger-btn" aria-label="Open Mobile Menu">
-            <i class="fa-solid fa-bars"></i>
+            <svg class="svg-icon" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
           </button>
         </div>
       </nav>
@@ -133,23 +133,25 @@
   <aside id="mobileSidebar" class="mobile-sidebar">
     <div class="mobile-sidebar-header">
       <div class="brand-logo">
-        <div class="brand-icon-box"><i class="fa-solid fa-bolt-lightning"></i></div>
+        <div class="brand-icon-box">
+          <svg class="svg-icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+        </div>
         <span class="brand-name">CELL CARE</span>
       </div>
       <button id="closeSidebarBtn" style="background:none; border:none; color:#fff; font-size:1.5rem; cursor:pointer;">&times;</button>
     </div>
     <ul class="mobile-nav-links">
-      <li><a href="index.html" class="active"><i class="fa-solid fa-house"></i> Home</a></li>
-      <li><a href="products.html"><i class="fa-solid fa-boxes-stacked"></i> Products Catalog</a></li>
-      <li><a href="services.html"><i class="fa-solid fa-screwdriver-wrench"></i> Services</a></li>
-      <li><a href="about.html"><i class="fa-solid fa-building"></i> About Cell Care</a></li>
-      <li><a href="faq.html"><i class="fa-solid fa-circle-question"></i> FAQ</a></li>
-      <li><a href="contact.html"><i class="fa-solid fa-headset"></i> Contact Us</a></li>
-      <li><a href="checkout.html"><i class="fa-solid fa-cart-shopping"></i> Review Quote</a></li>
+      <li><a href="index.html" class="active"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg> Home</a></li>
+      <li><a href="products.html"><svg class="svg-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg> Products Catalog</a></li>
+      <li><a href="services.html"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg> Services</a></li>
+      <li><a href="about.html"><svg class="svg-icon" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="0"></rect><line x1="9" y1="22" x2="9" y2="12"></line><line x1="15" y1="22" x2="15" y2="12"></line><line x1="15" y1="12" x2="9" y2="12"></line></svg> About Cell Care</a></li>
+      <li><a href="faq.html"><svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg> FAQ</a></li>
+      <li><a href="contact.html"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> Contact Us</a></li>
+      <li><a href="checkout.html"><svg class="svg-icon" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg> Review Quote</a></li>
     </ul>
     <div style="margin-top:auto; padding-top:20px; border-top:1px solid var(--border-subtle);">
       <button class="btn btn-whatsapp" style="width:100%;" onclick="CellCare.openWhatsApp('Hello Cell Care India! I want to request a wholesale battery quotation.')">
-        <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+        <svg class="svg-icon" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Direct WhatsApp
       </button>
     </div>
   </aside>
@@ -158,53 +160,55 @@
   <div id="overlayBackdrop" class="overlay-backdrop"></div>
 
   <!-- HERO SECTION -->
-  <section class="section" style="padding-top: 60px; padding-bottom: 70px;">
+  <section class="section" style="padding-top: 56px; padding-bottom: 64px;">
     <div class="container">
-      <div style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 50px; align-items: center;">
+      <div style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px; align-items: center;">
         
         <!-- Left Hero Content -->
         <div>
           <div class="section-tag">
-            <i class="fa-solid fa-shield-halved"></i> Premier Indian Battery Manufacturer
+            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            PRECISION BATTERY MANUFACTURING
           </div>
-          <h1 class="section-title" style="font-size: clamp(2.4rem, 4.5vw, 3.4rem); margin-bottom: 20px;">
-            Powering the Future with <span>Grade-A Lithium</span> Batteries
+          <h1 class="section-title" style="font-size: clamp(2.2rem, 4vw, 3.2rem); margin-bottom: 18px;">
+            High-Density <span>Lithium-Ion</span> &amp; LiFePO4 Systems
           </h1>
-          <p class="section-subtitle" style="font-size: 1.15rem; margin-bottom: 32px; max-width: 580px;">
-            Engineered in India for harsh automotive &amp; industrial conditions. High-efficiency LiFePO4 &amp; NMC battery packs with active BMS safety protection for electric vehicles, solar power, and energy storage.
+          <p class="section-subtitle" style="font-size: 1rem; margin-bottom: 28px; max-width: 560px;">
+            Engineered in New Delhi for electric mobility, solar ESS, and industrial applications. Built with matched Grade-A cells, active Smart BMS protection, and laser-welded busbars.
           </p>
           
-          <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 40px;">
+          <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 36px;">
             <a href="products.html" class="btn btn-primary btn-lg">
-              <i class="fa-solid fa-bolt"></i> Explore Catalog
+              <svg class="svg-icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg> Explore Catalog
             </a>
             <button class="btn btn-whatsapp btn-lg" onclick="CellCare.openWhatsApp('Hello Cell Care India! I need a custom battery pack consultation for my project.')">
-              <i class="fa-brands fa-whatsapp"></i> Custom Pack Inquiry
+              <svg class="svg-icon" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Direct Technical Inquiry
             </button>
           </div>
 
           <!-- Quick Trust Badges -->
-          <div style="display: flex; gap: 24px; flex-wrap: wrap; border-top: 1px solid var(--border-subtle); padding-top: 24px;">
-            <div style="display: flex; align-items: center; gap: 10px;">
-              <i class="fa-solid fa-circle-check" style="color: var(--accent-primary); font-size: 1.2rem;"></i>
-              <span style="font-size: 0.88rem; color: var(--text-muted); font-weight: 500;">≥3000 Cycle Life</span>
+          <div style="display: flex; gap: 20px; flex-wrap: wrap; border-top: 1px solid var(--border-subtle); padding-top: 20px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <svg class="svg-icon" style="color:var(--accent-primary);" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); font-weight: 500;">≥3000 Cycle Life</span>
             </div>
-            <div style="display: flex; align-items: center; gap: 10px;">
-              <i class="fa-solid fa-circle-check" style="color: var(--accent-primary); font-size: 1.2rem;"></i>
-              <span style="font-size: 0.88rem; color: var(--text-muted); font-weight: 500;">Active Smart BMS</span>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <svg class="svg-icon" style="color:var(--accent-primary);" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); font-weight: 500;">Active Smart BMS</span>
             </div>
-            <div style="display: flex; align-items: center; gap: 10px;">
-              <i class="fa-solid fa-circle-check" style="color: var(--accent-primary); font-size: 1.2rem;"></i>
-              <span style="font-size: 0.88rem; color: var(--text-muted); font-weight: 500;">12-36 Mos Warranty</span>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <svg class="svg-icon" style="color:var(--accent-primary);" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); font-weight: 500;">12–36 Mos Warranty</span>
             </div>
           </div>
         </div>
 
-        <!-- Right Hero Graphic -->
-        <div style="position: relative; display: flex; justify-content: center; align-items: center;">
-          <div style="position: absolute; width: 340px; height: 340px; background: radial-gradient(circle, rgba(0, 255, 127, 0.22) 0%, transparent 70%); border-radius: 50%; filter: blur(30px);"></div>
-          <div style="width: 100%; max-width: 440px; aspect-ratio: 1/1; position: relative; z-index: 2; padding: 20px;">
-            <img src="assets/images/hero.svg" alt="Cell Care Battery Engineering" style="width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 0 25px rgba(0,255,127,0.35));" />
+        <!-- Right Hero Graphic: Sharp CAD Frame -->
+        <div style="display: flex; justify-content: center; align-items: center;">
+          <div style="position: relative; width: 100%; max-width: 440px; aspect-ratio: 1/1; background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-xs); display: flex; align-items: center; justify-content: center; padding: 24px;">
+            <div style="position: absolute; top: 12px; left: 14px; font-family: var(--font-mono); font-size: 0.68rem; color: var(--text-faint); letter-spacing: 0.06em;">CELL CARE // SYS: 48V–72V</div>
+            <div style="position: absolute; bottom: 12px; right: 14px; font-family: var(--font-mono); font-size: 0.68rem; color: var(--accent-primary); letter-spacing: 0.06em;">GRADE-A TESTED 100%</div>
+            <img src="assets/images/hero.svg" alt="Cell Care Battery Engineering" style="width: 100%; height: 100%; object-fit: contain;" />
           </div>
         </div>
 
@@ -213,47 +217,47 @@
   </section>
 
   <!-- TRUST & CREDENTIALS STRIP -->
-  <section style="background: var(--bg-surface); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); padding: 32px 0;">
+  <section style="background: var(--bg-surface); border-bottom: 1px solid var(--border-subtle); padding: 24px 0;">
     <div class="container">
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
         
-        <div style="display: flex; align-items: center; gap: 16px;">
-          <div style="width: 48px; height: 48px; border-radius: var(--radius-md); background: rgba(0, 255, 127, 0.1); border: 1px solid rgba(0, 255, 127, 0.25); display: flex; align-items: center; justify-content: center; color: var(--accent-primary); font-size: 1.3rem;">
-            <i class="fa-solid fa-industry"></i>
+        <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-xs); padding: 14px 18px; display: flex; align-items: center; gap: 12px;">
+          <div style="width: 36px; height: 36px; border-radius: var(--radius-xs); background: var(--bg-surface); border: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: center; color: var(--accent-primary);">
+            <svg class="svg-icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="0"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
           </div>
           <div>
-            <h4 style="font-size: 0.95rem; font-weight: 700; color: #ffffff;">Make in India</h4>
-            <p style="font-size: 0.82rem; color: var(--text-muted);">Direct factory manufacturing</p>
+            <h4 style="font-size: 0.88rem; font-weight: 700; color: #ffffff;">Make in India</h4>
+            <p style="font-size: 0.76rem; color: var(--text-muted); font-family: var(--font-mono);">Factory Assembly</p>
           </div>
         </div>
 
-        <div style="display: flex; align-items: center; gap: 16px;">
-          <div style="width: 48px; height: 48px; border-radius: var(--radius-md); background: rgba(6, 182, 212, 0.1); border: 1px solid rgba(6, 182, 212, 0.25); display: flex; align-items: center; justify-content: center; color: var(--accent-cyan); font-size: 1.3rem;">
-            <i class="fa-solid fa-award"></i>
+        <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-xs); padding: 14px 18px; display: flex; align-items: center; gap: 12px;">
+          <div style="width: 36px; height: 36px; border-radius: var(--radius-xs); background: var(--bg-surface); border: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: center; color: var(--accent-cyan);">
+            <svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
           </div>
           <div>
-            <h4 style="font-size: 0.95rem; font-weight: 700; color: #ffffff;">ISO 9001:2015</h4>
-            <p style="font-size: 0.82rem; color: var(--text-muted);">Strict quality inspection</p>
+            <h4 style="font-size: 0.88rem; font-weight: 700; color: #ffffff;">ISO 9001:2015</h4>
+            <p style="font-size: 0.76rem; color: var(--text-muted); font-family: var(--font-mono);">Bench Quality Inspection</p>
           </div>
         </div>
 
-        <div style="display: flex; align-items: center; gap: 16px;">
-          <div style="width: 48px; height: 48px; border-radius: var(--radius-md); background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.25); display: flex; align-items: center; justify-content: center; color: var(--accent-amber); font-size: 1.3rem;">
-            <i class="fa-solid fa-truck-fast"></i>
+        <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-xs); padding: 14px 18px; display: flex; align-items: center; gap: 12px;">
+          <div style="width: 36px; height: 36px; border-radius: var(--radius-xs); background: var(--bg-surface); border: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: center; color: var(--accent-amber);">
+            <svg class="svg-icon" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
           </div>
           <div>
-            <h4 style="font-size: 0.95rem; font-weight: 700; color: #ffffff;">Pan-India Dispatch</h4>
-            <p style="font-size: 0.82rem; color: var(--text-muted);">Fast insured logistics</p>
+            <h4 style="font-size: 0.88rem; font-weight: 700; color: #ffffff;">Pan-India Dispatch</h4>
+            <p style="font-size: 0.76rem; color: var(--text-muted); font-family: var(--font-mono);">Insured Surface Logistics</p>
           </div>
         </div>
 
-        <div style="display: flex; align-items: center; gap: 16px;">
-          <div style="width: 48px; height: 48px; border-radius: var(--radius-md); background: rgba(0, 255, 127, 0.1); border: 1px solid rgba(0, 255, 127, 0.25); display: flex; align-items: center; justify-content: center; color: var(--accent-primary); font-size: 1.3rem;">
-            <i class="fa-solid fa-handshake"></i>
+        <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-xs); padding: 14px 18px; display: flex; align-items: center; gap: 12px;">
+          <div style="width: 36px; height: 36px; border-radius: var(--radius-xs); background: var(--bg-surface); border: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: center; color: var(--accent-primary);">
+            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
           </div>
           <div>
-            <h4 style="font-size: 0.95rem; font-weight: 700; color: #ffffff;">B2B Wholesale</h4>
-            <p style="font-size: 0.82rem; color: var(--text-muted);">Tiered volume discounts</p>
+            <h4 style="font-size: 0.88rem; font-weight: 700; color: #ffffff;">B2B Wholesale</h4>
+            <p style="font-size: 0.76rem; color: var(--text-muted); font-family: var(--font-mono);">Direct Tier Discounts</p>
           </div>
         </div>
 
@@ -366,7 +370,7 @@
 
       <div style="text-align: center; margin-top: 48px;">
         <a href="products.html" class="btn btn-primary btn-lg">
-          <i class="fa-solid fa-boxes-stacked"></i> View Complete Product Range
+          <svg class="svg-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg> View Complete Product Range
         </a>
       </div>
     </div>
@@ -377,17 +381,20 @@
     <div class="container">
       <div style="max-width: 900px; margin: 0 auto;">
         
-        <div class="section-header" style="margin-bottom: 36px;">
-          <div class="section-tag"><i class="fa-solid fa-calculator"></i> Engineering Tool</div>
+        <div class="section-header" style="margin-bottom: 28px;">
+          <div class="section-tag">
+            <svg class="svg-icon" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="0"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="16" y1="14" x2="16" y2="18"></line><path d="M16 10h.01"></path><path d="M12 10h.01"></path><path d="M8 10h.01"></path><path d="M12 14h.01"></path><path d="M8 14h.01"></path><path d="M12 18h.01"></path><path d="M8 18h.01"></path></svg>
+            CAPACITY SIZING MATRIX
+          </div>
           <h2 class="section-title">Interactive <span>Battery Sizing</span> Calculator</h2>
-          <p class="section-subtitle">Select your target application parameters to estimate total watt-hour capacity, realistic EV range, and recommended pack configuration.</p>
+          <p class="section-subtitle">Simulate continuous output, total kilowatt-hour capacity, and estimated operational range.</p>
         </div>
 
-        <div style="background: var(--bg-card); border: 1px solid var(--border-card); border-radius: var(--radius-lg); padding: 36px; box-shadow: var(--shadow-md);">
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 28px;">
+        <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-xs); padding: 28px;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px;">
             
             <div>
-              <label style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 8px;">Select Application</label>
+              <label style="display: block; font-family: var(--font-mono); font-size: 0.78rem; font-weight: 600; color: var(--text-muted); margin-bottom: 6px; text-transform: uppercase;">Application Profile</label>
               <select id="calcApplication" class="custom-select" style="width: 100%;">
                 <option value="scooter">Electric 2-Wheeler / Scooter (25–45 km/h)</option>
                 <option value="erickshaw">E-Rickshaw Commercial (Passenger/Loader)</option>
@@ -396,7 +403,7 @@
             </div>
 
             <div>
-              <label style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 8px;">Nominal Voltage (V)</label>
+              <label style="display: block; font-family: var(--font-mono); font-size: 0.78rem; font-weight: 600; color: var(--text-muted); margin-bottom: 6px; text-transform: uppercase;">System Voltage (V)</label>
               <select id="calcVoltage" class="custom-select" style="width: 100%;">
                 <option value="48">48V Standard System</option>
                 <option value="60">60V High Performance</option>
@@ -405,14 +412,17 @@
             </div>
 
             <div>
-              <label style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 8px;">Battery Capacity: <span id="calcAhDisplay" style="color: var(--accent-primary); font-weight: 700;">30 Ah</span></label>
+              <label style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.78rem; font-weight: 600; color: var(--text-muted); margin-bottom: 6px; text-transform: uppercase;">
+                <span>Pack Capacity (Ah)</span>
+                <span id="calcAhDisplay" style="color: var(--accent-primary); font-weight: 700;">30 Ah</span>
+              </label>
               <input type="range" id="calcAhSlider" min="20" max="150" step="5" value="30" style="width: 100%; accent-color: var(--accent-primary); cursor: pointer;" />
             </div>
 
             <div>
-              <label style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 8px;">Cell Chemistry</label>
+              <label style="display: block; font-family: var(--font-mono); font-size: 0.78rem; font-weight: 600; color: var(--text-muted); margin-bottom: 6px; text-transform: uppercase;">Cell Chemistry</label>
               <select id="calcChemistry" class="custom-select" style="width: 100%;">
-                <option value="lifepo4">LiFePO4 (Highest Safety, 3000+ Cycles)</option>
+                <option value="lifepo4">LiFePO4 (Thermal Stability, 3000+ Cycles)</option>
                 <option value="nmc">NMC (High Energy Density, Lightweight)</option>
               </select>
             </div>
@@ -420,29 +430,29 @@
           </div>
 
           <!-- Calculated Results Card -->
-          <div style="background: rgba(0, 255, 127, 0.05); border: 1px solid rgba(0, 255, 127, 0.25); border-radius: var(--radius-md); padding: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; text-align: center;">
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-left: 3px solid var(--accent-primary); border-radius: var(--radius-xs); padding: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; text-align: center;">
             <div>
-              <div style="font-size: 0.82rem; color: var(--text-muted); text-transform: uppercase;">Total Energy Capacity</div>
-              <div id="calcWattHours" style="font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; color: var(--accent-primary);">1,440 Wh</div>
-              <div style="font-size: 0.78rem; color: var(--text-faint);">1.44 kWh Storage</div>
+              <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Total Storage Capacity</div>
+              <div id="calcWattHours" style="font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; color: #ffffff; margin-top: 2px;">1,440 Wh</div>
+              <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-faint);">1.44 kWh Energy</div>
             </div>
 
             <div>
-              <div style="font-size: 0.82rem; color: var(--text-muted); text-transform: uppercase;">Estimated EV Range</div>
-              <div id="calcRangeKm" style="font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; color: var(--accent-cyan);">~60–70 km</div>
-              <div style="font-size: 0.78rem; color: var(--text-faint);">Per Single Charge</div>
+              <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Estimated EV Range</div>
+              <div id="calcRangeKm" style="font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; color: var(--accent-cyan); margin-top: 2px;">~60–70 km</div>
+              <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-faint);">Nominal Cycle Estimate</div>
             </div>
 
             <div>
-              <div style="font-size: 0.82rem; color: var(--text-muted); text-transform: uppercase;">Recommended Pack</div>
-              <div id="calcRecommendedPack" style="font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: #ffffff; margin-top: 4px;">48V 30Ah LiFePO4</div>
-              <div style="font-size: 0.78rem; color: var(--text-faint);">With 40A Smart BMS</div>
+              <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Configuration Matrix</div>
+              <div id="calcRecommendedPack" style="font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; color: var(--accent-primary); margin-top: 4px;">48V 30Ah LiFePO4</div>
+              <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-faint);">With Smart Active BMS</div>
             </div>
           </div>
 
-          <div style="text-align: center; margin-top: 24px;">
-            <button id="calcQuoteBtn" class="btn btn-whatsapp">
-              <i class="fa-brands fa-whatsapp"></i> Inquire This Custom Configuration
+          <div style="text-align: center; margin-top: 20px;">
+            <button id="calcQuoteBtn" class="btn btn-whatsapp btn-md">
+              <svg class="svg-icon" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Request Custom Configuration
             </button>
           </div>
         </div>
@@ -455,35 +465,38 @@
   <section class="section">
     <div class="container">
       <div class="section-header">
-        <div class="section-tag"><i class="fa-solid fa-chart-line"></i> Proven Track Record</div>
+        <div class="section-tag">
+          <svg class="svg-icon" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+          TRACK RECORD
+        </div>
         <h2 class="section-title">Built on <span>Quality &amp; Precision</span></h2>
         <p class="section-subtitle">Delivering high reliability to EV manufacturers, conversion workshops, and solar installers nationwide.</p>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
         
-        <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 32px 24px; text-align: center;">
-          <div style="font-family: var(--font-display); font-size: 3rem; font-weight: 800; color: var(--accent-primary); line-height: 1;" id="statYears">5+</div>
-          <div style="font-size: 0.95rem; font-weight: 600; color: #ffffff; margin: 10px 0 4px 0;">Years in R&amp;D &amp; Assembly</div>
-          <div style="font-size: 0.82rem; color: var(--text-muted);">Dedicated battery engineering</div>
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-xs); padding: 28px 20px; text-align: center;">
+          <div style="font-family: var(--font-display); font-size: 2.8rem; font-weight: 800; color: var(--accent-primary); line-height: 1;" id="statYears">5+</div>
+          <div style="font-size: 0.92rem; font-weight: 600; color: #ffffff; margin: 10px 0 4px 0;">Years in R&amp;D &amp; Assembly</div>
+          <div style="font-size: 0.78rem; color: var(--text-muted); font-family: var(--font-mono);">Dedicated battery engineering</div>
         </div>
 
-        <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 32px 24px; text-align: center;">
-          <div style="font-family: var(--font-display); font-size: 3rem; font-weight: 800; color: var(--accent-cyan); line-height: 1;" id="statSold">10,000+</div>
-          <div style="font-size: 0.95rem; font-weight: 600; color: #ffffff; margin: 10px 0 4px 0;">Batteries Delivered</div>
-          <div style="font-size: 0.82rem; color: var(--text-muted);">Across 20+ Indian states</div>
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-xs); padding: 28px 20px; text-align: center;">
+          <div style="font-family: var(--font-display); font-size: 2.8rem; font-weight: 800; color: var(--accent-cyan); line-height: 1;" id="statSold">10,000+</div>
+          <div style="font-size: 0.92rem; font-weight: 600; color: #ffffff; margin: 10px 0 4px 0;">Batteries Delivered</div>
+          <div style="font-size: 0.78rem; color: var(--text-muted); font-family: var(--font-mono);">Across 20+ Indian states</div>
         </div>
 
-        <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 32px 24px; text-align: center;">
-          <div style="font-family: var(--font-display); font-size: 3rem; font-weight: 800; color: var(--accent-amber); line-height: 1;" id="statDistributors">100+</div>
-          <div style="font-size: 0.95rem; font-weight: 600; color: #ffffff; margin: 10px 0 4px 0;">B2B Partners &amp; Dealers</div>
-          <div style="font-size: 0.82rem; color: var(--text-muted);">Nationwide supply network</div>
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-xs); padding: 28px 20px; text-align: center;">
+          <div style="font-family: var(--font-display); font-size: 2.8rem; font-weight: 800; color: var(--accent-amber); line-height: 1;" id="statDistributors">100+</div>
+          <div style="font-size: 0.92rem; font-weight: 600; color: #ffffff; margin: 10px 0 4px 0;">B2B Partners &amp; Dealers</div>
+          <div style="font-size: 0.78rem; color: var(--text-muted); font-family: var(--font-mono);">Nationwide supply network</div>
         </div>
 
-        <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 32px 24px; text-align: center;">
-          <div style="font-family: var(--font-display); font-size: 3rem; font-weight: 800; color: #ffffff; line-height: 1;" id="statEmployees">50+</div>
-          <div style="font-size: 0.95rem; font-weight: 600; color: #ffffff; margin: 10px 0 4px 0;">Technical Engineers</div>
-          <div style="font-size: 0.82rem; color: var(--text-muted);">Skilled assembly &amp; QC technicians</div>
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-xs); padding: 28px 20px; text-align: center;">
+          <div style="font-family: var(--font-display); font-size: 2.8rem; font-weight: 800; color: #ffffff; line-height: 1;" id="statEmployees">50+</div>
+          <div style="font-size: 0.92rem; font-weight: 600; color: #ffffff; margin: 10px 0 4px 0;">Technical Engineers</div>
+          <div style="font-size: 0.78rem; color: var(--text-muted); font-family: var(--font-mono);">Skilled assembly &amp; QC technicians</div>
         </div>
 
       </div>
@@ -493,7 +506,10 @@
   <!-- GLOBAL SLIDE-OVER QUOTE DRAWER (ACCESSIBLE ACROSS SITE) -->
   <aside id="quoteDrawer" class="quote-drawer">
     <div class="quote-drawer-header">
-      <h3><i class="fa-solid fa-file-invoice" style="color:var(--accent-primary);"></i> Your Quotation Cart</h3>
+      <h3>
+        <svg class="svg-icon" style="color:var(--accent-primary);" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+        Quotation Cart
+      </h3>
       <button id="quoteDrawerClose" class="quote-drawer-close">&times;</button>
     </div>
     
@@ -503,11 +519,11 @@
 
     <div class="quote-drawer-footer">
       <div class="quote-summary-row">
-        <span id="quoteDrawerCountText" style="color:var(--text-muted);">Subtotal</span>
+        <span id="quoteDrawerCountText" style="color:var(--text-muted); font-family: var(--font-mono); font-size: 0.85rem;">Subtotal</span>
         <span id="quoteDrawerTotal" class="quote-summary-total">₹0</span>
       </div>
-      <button id="quoteDrawerProceed" class="btn btn-primary" style="width:100%;">
-        <i class="fa-solid fa-arrow-right"></i> Proceed to WhatsApp Checkout
+      <button id="quoteDrawerProceed" class="btn btn-whatsapp" style="width:100%;">
+        <svg class="svg-icon" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Proceed to WhatsApp Checkout
       </button>
     </div>
   </aside>
@@ -520,17 +536,19 @@
         <!-- Col 1: Brand Info -->
         <div class="footer-brand">
           <div class="brand-logo">
-            <div class="brand-icon-box"><i class="fa-solid fa-bolt-lightning"></i></div>
+            <div class="brand-icon-box">
+              <svg class="svg-icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </div>
             <span class="brand-name">CELL CARE <span class="brand-tag">INDIA</span></span>
           </div>
           <p>
             Cell Care India is an ISO 9001:2015 certified manufacturer of high-reliability Lithium-ion &amp; LiFePO4 battery modules for electric mobility and energy storage.
           </p>
           <div class="footer-socials">
-            <a href="#" class="social-facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="social-linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-facebook" aria-label="Facebook"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+            <a href="#" class="social-twitter" aria-label="Twitter"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+            <a href="#" class="social-instagram" aria-label="Instagram"><svg class="svg-icon" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+            <a href="#" class="social-linkedin" aria-label="LinkedIn"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
           </div>
         </div>
 
@@ -563,19 +581,19 @@
           <h4>Factory Contact</h4>
           <ul class="footer-contact-list">
             <li>
-              <i class="fa-solid fa-location-dot"></i>
+              <svg class="svg-icon" style="color:var(--accent-primary);" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
               <span data-bind="site-address">Cell Care India Complex, New Delhi, India</span>
             </li>
             <li>
-              <i class="fa-solid fa-phone"></i>
+              <svg class="svg-icon" style="color:var(--accent-primary);" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
               <span data-bind="site-phone">+91 85059 10581</span>
             </li>
             <li>
-              <i class="fa-solid fa-envelope"></i>
+              <svg class="svg-icon" style="color:var(--accent-primary);" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
               <span data-bind="site-email">sales@cellcareindia.com</span>
             </li>
             <li>
-              <i class="fa-brands fa-whatsapp" style="color:#25d366;"></i>
+              <svg class="svg-icon" style="color:#25d366;" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
               <span>Direct WhatsApp Available 24/7</span>
             </li>
           </ul>
@@ -804,6 +822,7 @@
         const ah = calcSlider.value;
         const chem = calcChem.options[calcChem.selectedIndex].text;
         const app = calcApp.options[calcApp.selectedIndex].text;
+        const msg = `Hello Cell Care India! I need a custom battery quotation:\n- Application: ${app}\n- Voltage: ${v}V\n- Capacity: ${ah}Ah\n- Chemistry: ${chem}\nPlease share ex-factory price and dispatch timeline.`;
         if (window.CellCare && typeof window.CellCare.openWhatsApp === "function") {
           window.CellCare.openWhatsApp(msg);
         } else {

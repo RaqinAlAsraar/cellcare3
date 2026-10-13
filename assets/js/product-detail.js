@@ -472,7 +472,7 @@
             ${formattedPrice}
           </div>
           <a href="${detailUrl}" class="btn btn-secondary btn-sm" style="width: 100%;">
-            <i class="fa-solid fa-circle-info"></i> View Details
+            ${(window.CellCare && window.CellCare.svg && window.CellCare.svg.info) || '<svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>'} View Specs
           </a>
         </div>
       `;

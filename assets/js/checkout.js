@@ -36,23 +36,25 @@
 
     const items = Object.values(window.CellCare.cart || {});
 
+    const svg = (window.CellCare && window.CellCare.svg) || {};
+
     if (!items.length) {
       listContainer.innerHTML = `
         <div style="text-align:center; padding: 24px 10px; color: var(--text-muted);">
-          <p style="font-size: 0.9rem; margin-bottom: 12px;">Your cart is currently empty.</p>
+          <p style="font-size: 0.9rem; margin-bottom: 12px;">Your quote cart is currently empty.</p>
           <a href="products.html" class="btn btn-outline btn-sm">Browse Products</a>
         </div>
       `;
       if (totalEl) totalEl.textContent = "₹0";
       if (submitBtn) {
-        submitBtn.innerHTML = '<i class="fa-brands fa-whatsapp"></i> Send Inquiry to WhatsApp';
+        submitBtn.innerHTML = `${svg.whatsapp || ""} Send Inquiry to WhatsApp`;
         submitBtn.disabled = false;
       }
       return;
     }
 
     if (submitBtn) {
-      submitBtn.innerHTML = '<i class="fa-brands fa-whatsapp"></i> Send Order to WhatsApp';
+      submitBtn.innerHTML = `${svg.whatsapp || ""} Send Order to WhatsApp`;
       submitBtn.disabled = false;
     }
 
@@ -76,7 +78,7 @@
             ${lineTotal > 0 ? `₹${lineTotal.toLocaleString("en-IN")}` : "Quote"}
           </div>
           <button type="button" class="order-item-remove-btn" onclick="removeCheckoutItem('${safeId}')" title="Remove item">
-            <i class="fa-solid fa-xmark"></i>
+            ${svg.xmark || '<svg class="svg-icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>'}
           </button>
         </div>
       `;

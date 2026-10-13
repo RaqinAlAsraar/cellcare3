@@ -353,12 +353,14 @@
 
     const items = state.filteredProducts;
 
+    const svg = (window.CellCare && window.CellCare.svg) || {};
+
     if (!items.length) {
       container.innerHTML = `
-        <div style="grid-column: 1/-1; text-align: center; padding: 60px 20px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg);">
-          <i class="fa-solid fa-battery-empty" style="font-size: 2.8rem; color: var(--text-faint); margin-bottom: 16px;"></i>
-          <h3 style="color: #ffffff; margin-bottom: 8px;">No products match your criteria</h3>
-          <p style="color: var(--text-muted); margin-bottom: 20px;">Try adjusting your search terms or clearing active category filters.</p>
+        <div style="grid-column: 1/-1; text-align: center; padding: 60px 20px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-xs);">
+          <svg class="svg-icon" style="width: 44px; height: 44px; stroke-width: 1.5; color: var(--text-faint); margin-bottom: 16px;" viewBox="0 0 24 24"><rect x="2" y="7" width="16" height="10" rx="0"></rect><line x1="22" y1="11" x2="22" y2="13"></line><line x1="6" y1="11" x2="6" y2="13"></line></svg>
+          <h3 style="color: #ffffff; margin-bottom: 8px;">No matching battery specifications</h3>
+          <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 0.9rem;">Try adjusting your voltage/capacity search terms or resetting category filters.</p>
           <button class="btn btn-outline" id="resetFiltersInnerBtn">Reset Filters</button>
         </div>
       `;
@@ -395,18 +397,19 @@
     // Get current qty in cart
     const cartItem = window.CellCare ? window.CellCare.cart[p.id] : null;
     const currentQty = cartItem ? cartItem.qty : minQty;
+    const svg = (window.CellCare && window.CellCare.svg) || {};
 
     card.innerHTML = `
       <div class="product-card-media">
         <img src="${imgUrl}" class="product-card-img" alt="${escapeHtml(title)}" loading="lazy" />
         <div class="product-card-badges">
           <span class="badge ${isAvailable ? "badge-success" : "badge-danger"}">
-            <i class="fa-solid ${isAvailable ? "fa-check" : "fa-clock"}"></i> ${isAvailable ? "In Stock" : "Pre-Order"}
+            ${isAvailable ? (svg.check || "") : (svg.info || "")} ${isAvailable ? "In Stock" : "Pre-Order"}
           </span>
           <span class="badge badge-cyan">${escapeHtml(category)}</span>
         </div>
-        <button class="product-quick-view-btn" title="View full image" onclick="window.CatalogApp.openLightbox('${imgUrl}')">
-          <i class="fa-solid fa-expand"></i>
+        <button class="product-quick-view-btn" title="View CAD Image" onclick="window.CatalogApp.openLightbox('${imgUrl}')">
+          ${svg.expand || '<svg class="svg-icon" viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>'}
         </button>
       </div>
 
@@ -418,7 +421,7 @@
         <p class="product-card-desc">${escapeHtml(desc)}</p>
         
         <div class="product-card-moq">
-          <i class="fa-solid fa-boxes-stacked"></i> Minimum Order: <strong>${minQty} Units</strong>
+          ${svg.boxes || '<svg class="svg-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>'} Minimum Order: <strong>${minQty} Units</strong>
         </div>
 
         <div class="product-card-pricing">
@@ -436,16 +439,16 @@
               <button class="stepper-btn btn-plus" data-id="${p.id}" data-step="${minQty}">+</button>
             </div>
             <button class="btn btn-primary btn-sm btn-add-quote" data-id="${p.id}" style="flex:1.2;">
-              <i class="fa-solid fa-file-invoice"></i> Add to Quote
+              ${svg.cart || ""} Add to Quote
             </button>
           </div>
 
           <div class="card-btn-grid">
             <a href="${detailUrl}" class="btn btn-secondary btn-sm">
-              <i class="fa-solid fa-circle-info"></i> Full Details
+              ${svg.info || ""} Specs &amp; CAD
             </a>
             <button class="btn btn-whatsapp btn-sm btn-order-wa" data-id="${p.id}">
-              <i class="fa-brands fa-whatsapp"></i> Inquiry
+              ${svg.whatsapp || ""} Inquiry
             </button>
           </div>
         </div>
