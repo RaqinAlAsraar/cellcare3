@@ -359,12 +359,15 @@
       const toast = document.createElement("div");
       toast.className = `toast toast-${type}`;
       
-      let icon = "fa-circle-info";
-      if (type === "success") icon = "fa-circle-check";
-      if (type === "error") icon = "fa-triangle-exclamation";
+      let iconSvg = '<svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>';
+      if (type === "success") {
+        iconSvg = '<svg class="svg-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+      } else if (type === "error") {
+        iconSvg = '<svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>';
+      }
 
       toast.innerHTML = `
-        <i class="fa-solid ${icon}"></i>
+        ${iconSvg}
         <span>${escapeHtml(message)}</span>
       `;
 

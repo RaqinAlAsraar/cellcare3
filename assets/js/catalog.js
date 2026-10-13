@@ -35,10 +35,6 @@
   let resultCountEl = null;
   let clearFiltersBtn = null;
 
-  // Lightbox Modal
-  let lightboxModal = null;
-  let lightboxImg = null;
-
   function escapeHtml(str) {
     if (str == null) return "";
     return String(str)
@@ -89,7 +85,7 @@
     }
     container.innerHTML = html;
     if (resultCountEl) {
-      resultCountEl.innerHTML = `<span style="color:var(--accent-primary);"><i class="fa-solid fa-spinner fa-spin"></i> Synchronizing live inventory...</span>`;
+      resultCountEl.innerHTML = `<span style="color:var(--accent-primary);"><svg class="svg-icon spin" viewBox="0 0 24 24" style="animation:spin 1s linear infinite; display:inline-block; vertical-align:middle; margin-right:4px;"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg> Synchronizing live inventory...</span>`;
     }
   }
 
@@ -103,7 +99,7 @@
           Live synchronization from backend catalogue is taking a few moments. Please check your connection or tap below to reconnect.
         </p>
         <button id="catalogRetryBtn" class="btn btn-primary btn-md">
-          <i class="fa-solid fa-rotate-right"></i> Retry Connection
+          <svg class="svg-icon" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg> Retry Connection
         </button>
       </div>
     `;
@@ -116,7 +112,7 @@
       });
     }
     if (resultCountEl) {
-      resultCountEl.innerHTML = `<span style="color:var(--accent-amber);"><i class="fa-solid fa-circle-exclamation"></i> Reconnecting to server...</span>`;
+      resultCountEl.innerHTML = `<span style="color:var(--accent-amber);"><svg class="svg-icon" viewBox="0 0 24 24" style="display:inline-block; vertical-align:middle; margin-right:4px;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg> Reconnecting to server...</span>`;
     }
   }
 
@@ -401,16 +397,15 @@
 
     card.innerHTML = `
       <div class="product-card-media">
-        <img src="${imgUrl}" class="product-card-img" alt="${escapeHtml(title)}" loading="lazy" />
+        <a href="${detailUrl}" class="product-card-media-link" aria-label="${escapeHtml(title)}" style="display:block; width:100%; height:100%;">
+          <img src="${imgUrl}" class="product-card-img" alt="${escapeHtml(title)}" loading="lazy" />
+        </a>
         <div class="product-card-badges">
           <span class="badge ${isAvailable ? "badge-success" : "badge-danger"}">
             ${isAvailable ? (svg.check || "") : (svg.info || "")} ${isAvailable ? "In Stock" : "Pre-Order"}
           </span>
           <span class="badge badge-cyan">${escapeHtml(category)}</span>
         </div>
-        <button class="product-quick-view-btn" title="View CAD Image" onclick="window.CatalogApp.openLightbox('${imgUrl}')">
-          ${svg.expand || '<svg class="svg-icon" viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>'}
-        </button>
       </div>
 
       <div class="product-card-content">
@@ -516,7 +511,8 @@
     // Previous Button
     const prevBtn = document.createElement("button");
     prevBtn.className = "page-num-btn";
-    prevBtn.innerHTML = '<i class="fa-solid fa-chevron-left"></i>';
+    prevBtn.setAttribute("aria-label", "Previous Page");
+    prevBtn.innerHTML = '<svg class="svg-icon" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>';
     prevBtn.disabled = state.page === 1;
     prevBtn.onclick = () => {
       state.page--;
@@ -543,7 +539,8 @@
     // Next Button
     const nextBtn = document.createElement("button");
     nextBtn.className = "page-num-btn";
-    nextBtn.innerHTML = '<i class="fa-solid fa-chevron-right"></i>';
+    nextBtn.setAttribute("aria-label", "Next Page");
+    nextBtn.innerHTML = '<svg class="svg-icon" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>';
     nextBtn.disabled = state.page === totalPages;
     nextBtn.onclick = () => {
       state.page++;
@@ -686,44 +683,10 @@
   }
 
   // ----------------------------------------------------
-  // 6. LIGHTBOX MODAL
-  // ----------------------------------------------------
-  function initLightbox() {
-    lightboxModal = document.getElementById("catalogLightboxModal");
-    lightboxImg = document.getElementById("catalogLightboxImg");
-    const closeBtn = document.getElementById("catalogLightboxClose");
-
-    if (lightboxModal && closeBtn) {
-      closeBtn.addEventListener("click", closeLightbox);
-      lightboxModal.addEventListener("click", (e) => {
-        if (e.target === lightboxModal) closeLightbox();
-      });
-    }
-  }
-
-  function openLightbox(url) {
-    if (!lightboxModal || !lightboxImg) return;
-    lightboxImg.src = url;
-    lightboxModal.classList.add("active");
-  }
-
-  function closeLightbox() {
-    if (!lightboxModal) return;
-    lightboxModal.classList.remove("active");
-  }
-
-  // Expose lightbox helper globally
-  window.CatalogApp = {
-    openLightbox: openLightbox,
-    closeLightbox: closeLightbox
-  };
-
-  // ----------------------------------------------------
-  // 7. INITIALIZE
+  // 6. INITIALIZE
   // ----------------------------------------------------
   function bootCatalog() {
     bindDOMElements();
-    initLightbox();
     initListeners();
     readUrlParams();
     initCatalogData();

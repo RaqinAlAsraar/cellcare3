@@ -1,0 +1,11 @@
+# AI & Agent metadata / workflows
+.agent/
+.agents/
+.gsd/
+GSD-STYLE.md
+PROJECT_RULES.md
+VERSION
+model_capabilities.yaml
+.system_generated/
+.DS_Store
+*.log

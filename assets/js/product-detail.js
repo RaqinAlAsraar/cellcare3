@@ -252,7 +252,9 @@
     const badgeStock = document.getElementById("detailStockBadge");
     if (badgeStock) {
       badgeStock.className = `badge ${isAvailable ? "badge-success" : "badge-danger"}`;
-      badgeStock.innerHTML = `<i class="fa-solid ${isAvailable ? "fa-check" : "fa-clock"}"></i> ${isAvailable ? "In Stock & Ready to Dispatch" : "Pre-Order Lead Time"}`;
+      const checkSvg = '<svg class="svg-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+      const clockSvg = '<svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>';
+      badgeStock.innerHTML = `${isAvailable ? checkSvg : clockSvg} ${isAvailable ? "In Stock & Ready to Dispatch" : "Pre-Order Lead Time"}`;
     }
 
     const badgeCategory = document.getElementById("detailCategoryBadge");
@@ -512,16 +514,61 @@
     });
   }
 
+  function initProductZoom() {
+    const mainImg = document.getElementById("detailMainImg");
+    const zoomTrigger = document.getElementById("galleryZoomTrigger");
+    const modal = document.getElementById("productZoomModal");
+    const modalImg = document.getElementById("productZoomImg");
+    const closeBtn = document.getElementById("productZoomClose");
+    const backdrop = document.getElementById("productZoomBackdrop");
+
+    if (!modal || !modalImg) return;
+
+    function openZoom() {
+      if (!mainImg || !mainImg.src) return;
+      modalImg.src = mainImg.src;
+      modalImg.alt = mainImg.alt || "Product Enlarged";
+      modal.classList.add("active");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeZoom() {
+      modal.classList.remove("active");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    if (mainImg) {
+      mainImg.style.cursor = "zoom-in";
+      mainImg.addEventListener("click", openZoom);
+    }
+    if (zoomTrigger) {
+      zoomTrigger.addEventListener("click", (e) => {
+        e.stopPropagation();
+        openZoom();
+      });
+    }
+    if (closeBtn) closeBtn.addEventListener("click", closeZoom);
+    if (backdrop) backdrop.addEventListener("click", closeZoom);
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.classList.contains("active")) {
+        closeZoom();
+      }
+    });
+  }
+
   function showErrorState(title, msg) {
     const layout = document.querySelector(".product-detail-layout");
     if (layout) {
       layout.innerHTML = `
-        <div style="grid-column: 1/-1; text-align: center; padding: 80px 20px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg);">
-          <i class="fa-solid fa-battery-empty" style="font-size: 3rem; color: var(--accent-amber); margin-bottom: 16px;"></i>
+        <div style="grid-column: 1/-1; text-align: center; padding: 80px 20px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-xs);">
+          <svg class="svg-icon" style="width: 48px; height: 48px; color: var(--accent-amber); margin-bottom: 16px;" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
           <h2 style="color: #ffffff; margin-bottom: 8px;">${escapeHtml(title)}</h2>
           <p style="color: var(--text-muted); margin-bottom: 24px;">${escapeHtml(msg)}</p>
           <a href="products.html" class="btn btn-primary">
-            <i class="fa-solid fa-arrow-left"></i> Browse Complete Catalogue
+            <svg class="svg-icon" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg> Browse Complete Catalogue
           </a>
         </div>
       `;
@@ -543,6 +590,7 @@
   // ----------------------------------------------------
   function bootProductDetail() {
     initTabs();
+    initProductZoom();
     loadProduct();
     if (typeof window.addEventListener === "function") {
       window.addEventListener("popstate", loadProduct);
