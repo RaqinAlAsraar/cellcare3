@@ -1,0 +1,47 @@
+# ==============================================================================
+# Cell Care India — Master Robots Configuration
+# Optimized for Search Engines (Google, Bing, Yahoo) and AI Search Bots
+# ==============================================================================
+
+User-agent: *
+Allow: /
+Disallow: /assets/private/
+Disallow: /cdn-cgi/
+
+# Allow and Encourage AI Search Engine Bots (ChatGPT, Perplexity, Claude, Gemini)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+Allow: /assets/
+Allow: /products.html
+Allow: /product.html
+
+User-agent: Bingbot
+Allow: /
+Allow: /assets/
+
+# Crawl Delay
+Crawl-delay: 1
+
+# Sitemaps and AI Knowledge Standard
+Sitemap: https://cellcareindia.com/sitemap.xml

@@ -1,0 +1,330 @@
+/* ==========================================================================
+   PRODUCT DETAIL PAGE STYLES (v3.0)
+   ========================================================================== */
+
+/* Breadcrumb Navigation */
+.breadcrumbs-bar {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 40px;
+}
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  font-size: 0.88rem;
+  color: var(--text-faint);
+}
+
+.breadcrumbs a {
+  color: var(--text-muted);
+}
+
+.breadcrumbs a:hover {
+  color: var(--accent-primary);
+}
+
+.breadcrumbs .current {
+  color: var(--accent-primary);
+  font-weight: 600;
+}
+
+/* Product Detail Main Grid */
+.product-detail-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 1.2fr;
+  gap: 50px;
+  margin-bottom: 80px;
+  align-items: start;
+}
+
+/* Gallery Area */
+.product-gallery {
+  position: sticky;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.product-gallery-main {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #020617;
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-in;
+}
+
+.product-gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.product-gallery-img:hover {
+  transform: scale(1.08);
+}
+
+.gallery-badges-overlay {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 2;
+}
+
+/* Product Info Area */
+.product-info-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.product-detail-cat {
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--accent-cyan);
+}
+
+.product-detail-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.25;
+  color: #ffffff;
+}
+
+.product-detail-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.product-detail-price-box {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 18px 24px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.price-main-val {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--accent-primary);
+}
+
+.price-note {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.product-detail-desc {
+  color: var(--text-muted);
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+/* Bulk Tier & MOQ Notice */
+.moq-callout-box {
+  background: rgba(0, 255, 127, 0.06);
+  border: 1px solid rgba(0, 255, 127, 0.2);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.moq-callout-box i {
+  color: var(--accent-primary);
+  font-size: 1.5rem;
+}
+
+.moq-callout-box h5 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.moq-callout-box p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+/* Purchase Action Group */
+.product-detail-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 10px;
+}
+
+.action-stepper-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.detail-stepper {
+  height: 48px;
+  width: 160px;
+}
+
+.detail-subtotal-calc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.detail-subtotal-calc strong {
+  color: var(--accent-primary);
+  font-size: 1.15rem;
+}
+
+.action-buttons-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 14px;
+}
+
+/* Trust Perks List */
+.product-perks-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.perk-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.86rem;
+  color: var(--text-muted);
+}
+
+.perk-item i {
+  color: var(--accent-primary);
+  font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   SPECIFICATIONS TABS & TABLES
+   ========================================================================== */
+.product-tabs-section {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  margin-bottom: 80px;
+}
+
+.tabs-nav {
+  display: flex;
+  gap: 12px;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 16px;
+  margin-bottom: 30px;
+  overflow-x: auto;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  padding: 10px 20px;
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.tab-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.tab-btn.active {
+  background: var(--accent-primary);
+  color: var(--text-inverse);
+}
+
+.tab-pane {
+  display: none;
+}
+
+.tab-pane.active {
+  display: block;
+}
+
+/* Specs Table */
+.specs-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.specs-table tr {
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.specs-table th, .specs-table td {
+  padding: 14px 18px;
+  text-align: left;
+  font-size: 0.92rem;
+}
+
+.specs-table th {
+  color: var(--text-muted);
+  font-weight: 500;
+  width: 35%;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.specs-table td {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .product-detail-layout {
+    grid-template-columns: 1fr;
+  }
+  .product-gallery {
+    position: static;
+  }
+}
+
+@media (max-width: 580px) {
+  .action-buttons-row {
+    grid-template-columns: 1fr;
+  }
+  .product-perks-list {
+    grid-template-columns: 1fr;
+  }
+}

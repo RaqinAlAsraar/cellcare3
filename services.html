@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Battery Engineering &amp; Lifecycle Services | Cell Care India</title>
+  <meta name="title" content="Battery Engineering &amp; Lifecycle Services | Cell Care India" />
+  <meta name="description" content="Custom EV battery design, Smart BMS calibration, diagnostic health checks, fleet conversions, and eco-friendly lithium recycling services by Cell Care India." />
+  <meta name="keywords" content="Battery design services India, EV battery repair Delhi, custom BMS programming, battery testing laboratory, lithium battery recycling India" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://cellcareindia.com/services.html" />
+  <meta name="theme-color" content="#00ff7f" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://cellcareindia.com/services.html" />
+  <meta property="og:title" content="Battery Engineering &amp; Lifecycle Services | Cell Care India" />
+  <meta property="og:description" content="Custom battery design, BMS calibration, diagnostic cell testing, and green recycling." />
+  <meta property="og:image" content="https://cellcareindia.com/assets/images/logo.png" />
+
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://cellcareindia.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Services",
+        "item": "https://cellcareindia.com/services.html"
+      }
+    ]
+  }
+  </script>
+
+  <!-- External Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <!-- Core Design System & Styles -->
+  <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+
+<body>
+
+  <!-- SITE HEADER & NAVBAR -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="index.html" class="brand-logo" aria-label="Cell Care India Home">
+          <div class="brand-icon-box"><i class="fa-solid fa-bolt-lightning"></i></div>
+          <span class="brand-name">CELL CARE <span class="brand-tag">INDIA</span></span>
+        </a>
+
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="products.html" class="nav-link">Products</a></li>
+          <li><a href="services.html" class="nav-link active">Services</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="faq.html" class="nav-link">FAQ</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <button class="cart-pill-btn open-quote-drawer" title="View Quotation Cart">
+            <i class="fa-solid fa-file-invoice"></i>
+            <span>Quote Cart</span>
+            <span class="cart-badge cart-count-badge" style="display:none;">0</span>
+          </button>
+
+          <button class="btn-whatsapp-nav" onclick="CellCare.openWhatsApp('Hello Cell Care India! I want to inquire about battery engineering services.')">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span>WhatsApp</span>
+          </button>
+
+          <button id="hamburgerBtn" class="hamburger-btn" aria-label="Open Mobile Menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Sidebar Drawer -->
+  <aside id="mobileSidebar" class="mobile-sidebar">
+    <div class="mobile-sidebar-header">
+      <div class="brand-logo">
+        <div class="brand-icon-box"><i class="fa-solid fa-bolt-lightning"></i></div>
+        <span class="brand-name">CELL CARE</span>
+      </div>
+      <button id="closeSidebarBtn" style="background:none; border:none; color:#fff; font-size:1.5rem; cursor:pointer;">&times;</button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+      <li><a href="products.html"><i class="fa-solid fa-boxes-stacked"></i> Products Catalog</a></li>
+      <li><a href="services.html" class="active"><i class="fa-solid fa-screwdriver-wrench"></i> Engineering Services</a></li>
+      <li><a href="about.html"><i class="fa-solid fa-building"></i> About Cell Care</a></li>
+      <li><a href="faq.html"><i class="fa-solid fa-circle-question"></i> FAQ</a></li>
+      <li><a href="contact.html"><i class="fa-solid fa-headset"></i> Contact Us</a></li>
+      <li><a href="checkout.html"><i class="fa-solid fa-cart-shopping"></i> Review Quote</a></li>
+    </ul>
+  </aside>
+
+  <!-- Global Backdrop -->
+  <div id="overlayBackdrop" class="overlay-backdrop"></div>
+
+  <!-- MAIN SERVICES CONTENT -->
+  <main class="section" style="padding-top: 40px;">
+    <div class="container">
+      
+      <div class="section-header" style="max-width: 780px;">
+        <div class="section-tag"><i class="fa-solid fa-screwdriver-wrench"></i> Comprehensive Solutions</div>
+        <h1 class="section-title">End-to-End <span>Battery Engineering</span> Services</h1>
+        <p class="section-subtitle">
+          From custom OEM prototyping and BMS firmware calibration to fleet battery diagnostics and green recycling, Cell Care India supports your power needs across every lifecycle stage.
+        </p>
+      </div>
+
+      <!-- 6 SERVICES GRID -->
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(340px, 1fr)); gap:30px; margin-bottom:80px;">
+        
+        <!-- Service 1 -->
+        <div style="background:var(--bg-surface); border:1px solid var(--border-subtle); border-radius:var(--radius-lg); padding:32px; display:flex; flex-direction:column; gap:16px;">
+          <div style="width:52px; height:52px; border-radius:var(--radius-md); background:rgba(0,255,127,0.12); border:1px solid rgba(0,255,127,0.3); display:flex; align-items:center; justify-content:center; color:var(--accent-primary); font-size:1.5rem;">
+            <i class="fa-solid fa-microchip"></i>
+          </div>
+          <div>
+            <h3 style="font-family:var(--font-display); font-size:1.3rem; color:#ffffff; margin-bottom:8px;">Custom Pack Sizing &amp; Prototyping</h3>
+            <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.6;">
+              Tailored design of Lithium-ion and LiFePO4 packs matching specific voltage profiles, continuous discharge current (C-rates), custom CAD enclosures, and vibration-damped mountings.
+            </p>
+          </div>
+          <button class="btn btn-outline btn-sm" style="margin-top:auto;" onclick="CellCare.openWhatsApp('Hello Cell Care India! I need consultation for Custom Battery Pack Prototyping.')">
+            <i class="fa-brands fa-whatsapp"></i> Inquire Prototyping
+          </button>
+        </div>
+
+        <!-- Service 2 -->
+        <div style="background:var(--bg-surface); border:1px solid var(--border-subtle); border-radius:var(--radius-lg); padding:32px; display:flex; flex-direction:column; gap:16px;">
+          <div style="width:52px; height:52px; border-radius:var(--radius-md); background:rgba(6,182,212,0.12); border:1px solid rgba(6,182,212,0.3); display:flex; align-items:center; justify-content:center; color:var(--accent-cyan); font-size:1.5rem;">
+            <i class="fa-solid fa-code"></i>
+          </div>
+          <div>
+            <h3 style="font-family:var(--font-display); font-size:1.3rem; color:#ffffff; margin-bottom:8px;">Smart BMS Calibration &amp; Programming</h3>
+            <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.6;">
+              Configuration of programmable BMS controllers with CAN-bus, RS485, and Bluetooth telemetry protocols. Calibration of precise over-voltage, thermal cut-off, and active cell balancing.
+            </p>
+          </div>
+          <button class="btn btn-outline btn-sm" style="margin-top:auto;" onclick="CellCare.openWhatsApp('Hello Cell Care India! I need consultation for Smart BMS Programming and Calibration.')">
+            <i class="fa-brands fa-whatsapp"></i> Inquire BMS Services
+          </button>
+        </div>
+
+        <!-- Service 3 -->
+        <div style="background:var(--bg-surface); border:1px solid var(--border-subtle); border-radius:var(--radius-lg); padding:32px; display:flex; flex-direction:column; gap:16px;">
+          <div style="width:52px; height:52px; border-radius:var(--radius-md); background:rgba(245,158,11,0.12); border:1px solid rgba(245,158,11,0.3); display:flex; align-items:center; justify-content:center; color:var(--accent-amber); font-size:1.5rem;">
+            <i class="fa-solid fa-heart-pulse"></i>
+          </div>
+          <div>
+            <h3 style="font-family:var(--font-display); font-size:1.3rem; color:#ffffff; margin-bottom:8px;">Diagnostic Health Check &amp; Testing</h3>
+            <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.6;">
+              Full computerized charge-discharge cycle curve analysis, Internal Resistance (IR) impedance measurement, thermal imaging, and capacity degradation grading for commercial fleets.
+            </p>
+          </div>
+          <button class="btn btn-outline btn-sm" style="margin-top:auto;" onclick="CellCare.openWhatsApp('Hello Cell Care India! I want to book a Diagnostic Battery Health Check.')">
+            <i class="fa-brands fa-whatsapp"></i> Book Diagnostic Test
+          </button>
+        </div>
+
+        <!-- Service 4 -->
+        <div style="background:var(--bg-surface); border:1px solid var(--border-subtle); border-radius:var(--radius-lg); padding:32px; display:flex; flex-direction:column; gap:16px;">
+          <div style="width:52px; height:52px; border-radius:var(--radius-md); background:rgba(0,255,127,0.12); border:1px solid rgba(0,255,127,0.3); display:flex; align-items:center; justify-content:center; color:var(--accent-primary); font-size:1.5rem;">
+            <i class="fa-solid fa-truck-ramp-box"></i>
+          </div>
+          <div>
+            <h3 style="font-family:var(--font-display); font-size:1.3rem; color:#ffffff; margin-bottom:8px;">Fleet Electrification &amp; Conversion</h3>
+            <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.6;">
+              End-to-end retrofitting solutions for commercial fleets, e-rickshaws, and golf carts transitioning from heavy lead-acid batteries to high-efficiency, zero-maintenance lithium packs.
+            </p>
+          </div>
+          <button class="btn btn-outline btn-sm" style="margin-top:auto;" onclick="CellCare.openWhatsApp('Hello Cell Care India! I want consultation on Commercial Fleet Electrification.')">
+            <i class="fa-brands fa-whatsapp"></i> Inquire Fleet Conversion
+          </button>
+        </div>
+
+        <!-- Service 5 -->
+        <div style="background:var(--bg-surface); border:1px solid var(--border-subtle); border-radius:var(--radius-lg); padding:32px; display:flex; flex-direction:column; gap:16px;">
+          <div style="width:52px; height:52px; border-radius:var(--radius-md); background:rgba(6,182,212,0.12); border:1px solid rgba(6,182,212,0.3); display:flex; align-items:center; justify-content:center; color:var(--accent-cyan); font-size:1.5rem;">
+            <i class="fa-solid fa-solar-panel"></i>
+          </div>
+          <div>
+            <h3 style="font-family:var(--font-display); font-size:1.3rem; color:#ffffff; margin-bottom:8px;">Solar &amp; ESS Storage Integration</h3>
+            <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.6;">
+              Commissioning and integration of wall-mount and rack-mount lithium storage banks with residential and industrial hybrid solar inverters, ensuring seamless backup power.
+            </p>
+          </div>
+          <button class="btn btn-outline btn-sm" style="margin-top:auto;" onclick="CellCare.openWhatsApp('Hello Cell Care India! I need Solar ESS Battery Storage Integration.')">
+            <i class="fa-brands fa-whatsapp"></i> Inquire Solar Storage
+          </button>
+        </div>
+
+        <!-- Service 6 -->
+        <div style="background:var(--bg-surface); border:1px solid var(--border-subtle); border-radius:var(--radius-lg); padding:32px; display:flex; flex-direction:column; gap:16px;">
+          <div style="width:52px; height:52px; border-radius:var(--radius-md); background:rgba(37,211,102,0.12); border:1px solid rgba(37,211,102,0.3); display:flex; align-items:center; justify-content:center; color:#25d366; font-size:1.5rem;">
+            <i class="fa-solid fa-recycle"></i>
+          </div>
+          <div>
+            <h3 style="font-family:var(--font-display); font-size:1.3rem; color:#ffffff; margin-bottom:8px;">Eco-Friendly Recycling &amp; Disposal</h3>
+            <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.6;">
+              Government-compliant lithium-ion battery collection and green recycling protocol. We safely recover raw active materials (lithium, iron, copper) through verified environmental processes.
+            </p>
+          </div>
+          <button class="btn btn-outline btn-sm" style="margin-top:auto;" onclick="CellCare.openWhatsApp('Hello Cell Care India! I want to inquire about Lithium Battery Recycling and Safe Disposal.')">
+            <i class="fa-brands fa-whatsapp"></i> Inquire Battery Recycling
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Quick Consultation CTA -->
+      <div style="background:rgba(0,255,127,0.06); border:1px solid rgba(0,255,127,0.25); border-radius:var(--radius-lg); padding:40px; text-align:center; max-width:860px; margin:0 auto;">
+        <h3 style="font-family:var(--font-display); font-size:1.6rem; color:#ffffff; margin-bottom:12px;">Need Specialized Engineering Assistance?</h3>
+        <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:24px;">Our chief battery engineers can evaluate your electrical schematics and provide an engineering report within 24 hours.</p>
+        <button class="btn btn-whatsapp btn-lg" onclick="CellCare.openWhatsApp('Hello Cell Care India! I want to speak with a Senior Battery Engineer regarding custom services.')">
+          <i class="fa-brands fa-whatsapp"></i> Speak Directly to Chief Engineer
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- GLOBAL SLIDE-OVER QUOTE DRAWER -->
+  <aside id="quoteDrawer" class="quote-drawer">
+    <div class="quote-drawer-header">
+      <h3><i class="fa-solid fa-file-invoice" style="color:var(--accent-primary);"></i> Your Quotation Cart</h3>
+      <button id="quoteDrawerClose" class="quote-drawer-close">&times;</button>
+    </div>
+    <div id="quoteDrawerItems" class="quote-drawer-body"></div>
+    <div class="quote-drawer-footer">
+      <div class="quote-summary-row">
+        <span id="quoteDrawerCountText" style="color:var(--text-muted);">Subtotal</span>
+        <span id="quoteDrawerTotal" class="quote-summary-total">₹0</span>
+      </div>
+      <button id="quoteDrawerProceed" class="btn btn-primary" style="width:100%;">Proceed to WhatsApp Checkout</button>
+    </div>
+  </aside>
+
+  <!-- SITE FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <div class="brand-icon-box"><i class="fa-solid fa-bolt-lightning"></i></div>
+            <span class="brand-name">CELL CARE <span class="brand-tag">INDIA</span></span>
+          </div>
+          <p>Cell Care India is an ISO 9001:2015 certified manufacturer of high-reliability Lithium-ion &amp; LiFePO4 battery modules.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">All Products</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Factory Contact</h4>
+          <ul class="footer-contact-list">
+            <li><i class="fa-solid fa-location-dot"></i> <span data-bind="site-address">New Delhi, India</span></li>
+            <li><i class="fa-solid fa-phone"></i> <span data-bind="site-phone">+91 85059 10581</span></li>
+            <li><i class="fa-solid fa-envelope"></i> <span data-bind="site-email">sales@cellcareindia.com</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 Cell Care India. All rights reserved. Made in India.</div>
+        <div class="footer-bottom-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms &amp; Warranty</a>
+          <a href="sitemap.xml">XML Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/api-config.js"></script>
+  <script src="assets/js/core.js"></script>
+</body>
+</html>

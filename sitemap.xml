@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Home Page -->
+  <url>
+    <loc>https://cellcareindia.com/</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://cellcareindia.com/assets/images/logo.png</image:loc>
+      <image:title>Cell Care India — Leading EV Battery Manufacturer</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://cellcareindia.com/assets/images/hero.svg</image:loc>
+      <image:title>High Performance Lithium-ion &amp; EV Battery Cells</image:title>
+    </image:image>
+  </url>
+
+  <!-- Complete Product Catalog -->
+  <url>
+    <loc>https://cellcareindia.com/products.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Dedicated Product Detail Entrypoint -->
+  <url>
+    <loc>https://cellcareindia.com/product.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- About Us & Manufacturing Facility -->
+  <url>
+    <loc>https://cellcareindia.com/about.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Direct WhatsApp & Factory Contact -->
+  <url>
+    <loc>https://cellcareindia.com/contact.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Frequently Asked Questions -->
+  <url>
+    <loc>https://cellcareindia.com/faq.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Quotation & Checkout -->
+  <url>
+    <loc>https://cellcareindia.com/checkout.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Privacy Policy -->
+  <url>
+    <loc>https://cellcareindia.com/privacy.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <!-- Terms & Warranty Policy -->
+  <url>
+    <loc>https://cellcareindia.com/terms.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+</urlset>

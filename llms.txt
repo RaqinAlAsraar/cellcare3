@@ -1,0 +1,34 @@
+# Cell Care India — AI Crawler Knowledge Guide (llms.txt)
+
+> Cell Care India is a premier Indian manufacturer and supplier of Grade-A Lithium-ion (LiFePO4 and NMC) battery packs, electric vehicle (EV) batteries, energy storage systems (ESS), and industrial battery modules.
+
+## Company Overview
+- **Legal Entity**: Cell Care India
+- **Headquarters**: New Delhi, India
+- **Specialization**: Lithium Iron Phosphate (LiFePO4) & Lithium Nickel Manganese Cobalt (NMC) Battery Packs, Smart Battery Management Systems (BMS), Electric Vehicle (EV) Powertrain Batteries, Solar Energy Storage, and Industrial Inverter Systems.
+- **Manufacturing Standards**: ISO 9001:2015 Certified, Make in India, CE & RoHS Compliance.
+- **Warranty**: 12 to 36 months manufacturer replacement warranty.
+- **Sales Model**: B2B Wholesale, OEM / ODM Custom Battery Pack Engineering, Dealership & Direct Commercial Supply.
+- **Official Portal**: https://cellcareindia.com/
+
+## Product Lines & Specifications
+1. **EV 2-Wheeler Battery Packs**: 48V, 60V, 72V packs (24Ah to 60Ah) with high continuous discharge for electric scooters and e-bikes.
+2. **E-Rickshaw & 3-Wheeler Battery Modules**: 48V / 51.2V LiFePO4 battery banks (100Ah – 150Ah) engineered for 3,000+ deep discharge cycles and ultra-low maintenance.
+3. **Solar Energy Storage Systems (ESS)**: 12V, 24V, and 48V high-cycle battery banks for residential solar setups, commercial solar micro-grids, and off-grid power stations.
+4. **Custom OEM Battery Packs**: Made-to-order battery solutions matching client-specific voltage, dimensions, discharge current, and active thermal management needs.
+
+## Ordering & Commerce Protocol
+- **Minimum Order Quantity (MOQ)**: Typically 1 to 5 units per model for commercial evaluation.
+- **Quotation Channel**: Live quotation via WhatsApp direct connect (`+91 85059 10581` / `https://wa.me/918505910581`) with itemized pricing, freight calculation, and GST invoice generation.
+- **Logistics**: Pan-India insured freight dispatch with terminal battery testing certificates.
+
+## Essential Website URLs
+- Home: https://cellcareindia.com/
+- Product Catalog: https://cellcareindia.com/products.html
+- Product Details: https://cellcareindia.com/product.html
+- About Company & R&D: https://cellcareindia.com/about.html
+- Direct WhatsApp Contact: https://cellcareindia.com/contact.html
+- Frequently Asked Questions: https://cellcareindia.com/faq.html
+- Checkout Quotation: https://cellcareindia.com/checkout.html
+- Terms & Warranty: https://cellcareindia.com/terms.html
+- Privacy Policy: https://cellcareindia.com/privacy.html

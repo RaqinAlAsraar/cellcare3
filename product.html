@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Battery Pack Specifications &amp; Pricing | Cell Care India</title>
+  <meta name="title" content="Battery Pack Specifications &amp; Pricing | Cell Care India" />
+  <meta name="description" content="View detailed technical specifications, voltage, capacity, cycle life, and B2B quotation for Cell Care India Grade-A Lithium-ion and LiFePO4 battery modules." />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#00ff7f" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="product" />
+  <meta property="og:title" content="Battery Pack Specifications | Cell Care India" />
+  <meta property="og:description" content="Grade-A Lithium Battery Pack with Smart BMS. Direct Manufacturer B2B Quotations." />
+  <meta property="og:image" content="https://cellcareindia.com/assets/images/logo.png" />
+
+  <!-- External Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <!-- Core Design System & Styles -->
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/catalog.css" />
+  <link rel="stylesheet" href="assets/css/product-detail.css" />
+</head>
+
+<body>
+
+  <!-- SITE HEADER & NAVBAR -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="index.html" class="brand-logo" aria-label="Cell Care India Home">
+          <div class="brand-icon-box"><i class="fa-solid fa-bolt-lightning"></i></div>
+          <span class="brand-name">CELL CARE <span class="brand-tag">INDIA</span></span>
+        </a>
+
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="products.html" class="nav-link active">Products</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="faq.html" class="nav-link">FAQ</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <button class="cart-pill-btn open-quote-drawer" title="View Quotation Cart">
+            <i class="fa-solid fa-file-invoice"></i>
+            <span>Quote Cart</span>
+            <span class="cart-badge cart-count-badge" style="display:none;">0</span>
+          </button>
+
+          <button class="btn-whatsapp-nav" onclick="CellCare.openWhatsApp('Hello Cell Care India! I want to request a wholesale battery quotation.')">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span>WhatsApp</span>
+          </button>
+
+          <button id="hamburgerBtn" class="hamburger-btn" aria-label="Open Mobile Menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Sidebar Drawer -->
+  <aside id="mobileSidebar" class="mobile-sidebar">
+    <div class="mobile-sidebar-header">
+      <div class="brand-logo">
+        <div class="brand-icon-box"><i class="fa-solid fa-bolt-lightning"></i></div>
+        <span class="brand-name">CELL CARE</span>
+      </div>
+      <button id="closeSidebarBtn" style="background:none; border:none; color:#fff; font-size:1.5rem; cursor:pointer;">&times;</button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+      <li><a href="products.html" class="active"><i class="fa-solid fa-boxes-stacked"></i> Products Catalog</a></li>
+      <li><a href="services.html"><i class="fa-solid fa-screwdriver-wrench"></i> Services</a></li>
+      <li><a href="about.html"><i class="fa-solid fa-building"></i> About Cell Care</a></li>
+      <li><a href="faq.html"><i class="fa-solid fa-circle-question"></i> FAQ</a></li>
+      <li><a href="contact.html"><i class="fa-solid fa-headset"></i> Contact Us</a></li>
+      <li><a href="checkout.html"><i class="fa-solid fa-cart-shopping"></i> Review Quote</a></li>
+    </ul>
+  </aside>
+
+  <!-- Global Backdrop -->
+  <div id="overlayBackdrop" class="overlay-backdrop"></div>
+
+  <!-- MAIN PRODUCT DETAILS -->
+  <main class="section" style="padding-top: 30px;">
+    <div class="container">
+      
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumbs-bar" aria-label="Breadcrumb">
+        <ol class="breadcrumbs">
+          <li><a href="index.html">Home</a></li>
+          <li><i class="fa-solid fa-chevron-right" style="font-size:0.7rem;"></i></li>
+          <li><a href="products.html">Products Catalogue</a></li>
+          <li><i class="fa-solid fa-chevron-right" style="font-size:0.7rem;"></i></li>
+          <li id="breadcrumbProductTitle" class="current">Loading Model…</li>
+        </ol>
+      </nav>
+
+      <!-- 2-COLUMN PRODUCT DETAIL LAYOUT -->
+      <section class="product-detail-layout">
+        
+        <!-- Left: Interactive Gallery -->
+        <div class="product-gallery">
+          <div class="product-gallery-main">
+            <img id="detailMainImg" src="assets/images/hero.svg" alt="Product View" class="product-gallery-img" />
+            <div class="gallery-badges-overlay">
+              <span id="detailStockBadge" class="badge badge-success">In Stock</span>
+              <span id="detailCategoryBadge" class="badge badge-cyan">Lithium-Ion</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Information & Purchasing Actions -->
+        <div class="product-info-panel">
+          <span id="detailCategoryTag" class="product-detail-cat"><span class="skeleton-pill skeleton-shimmer" style="display:inline-block; width:90px; height:18px;"></span></span>
+          <h1 id="detailTitle" class="product-detail-title"><span class="skeleton-title-bar skeleton-shimmer" style="display:block; height:32px; width:75%;"></span></h1>
+
+          <div class="product-detail-meta">
+            <span id="detailSku" style="color:var(--text-faint); font-weight:600;">SKU: CC-IND</span>
+            <span>•</span>
+            <span style="color:var(--accent-primary);"><i class="fa-solid fa-star"></i> 4.9 / 5.0 (Certified Grade-A Cells)</span>
+            <span>•</span>
+            <span style="color:var(--text-muted);"><i class="fa-solid fa-shield-halved"></i> Active BMS Protected</span>
+          </div>
+
+          <!-- Price Display -->
+          <div class="product-detail-price-box">
+            <div>
+              <div id="detailPrice" class="price-main-val"><span class="skeleton-price-bar skeleton-shimmer" style="display:block; height:34px; width:45%;"></span></div>
+              <div class="price-note">GST inclusive • Ex-factory commercial wholesale pricing</div>
+            </div>
+            <div>
+              <span class="badge badge-success"><i class="fa-solid fa-truck-fast"></i> Pan-India Dispatch</span>
+            </div>
+          </div>
+
+          <p id="detailDesc" class="product-detail-desc">
+            <span class="skeleton-desc-bar skeleton-shimmer" style="display:block; margin-bottom:8px;"></span>
+            <span class="skeleton-desc-bar skeleton-shimmer" style="display:block; margin-bottom:8px;"></span>
+            <span class="skeleton-desc-bar short skeleton-shimmer" style="display:block;"></span>
+          </p>
+
+          <!-- MOQ Callout -->
+          <div class="moq-callout-box">
+            <i class="fa-solid fa-boxes-stacked"></i>
+            <div>
+              <h5>Minimum Order Quantity: <span id="detailMoqNumber" style="color:var(--accent-primary);">1 Unit</span></h5>
+              <p>Sample test units available for OEM &amp; R&amp;D engineering trials. Volume tier discounts applied automatically on bulk orders.</p>
+            </div>
+          </div>
+
+          <!-- Action & Stepper Group -->
+          <div class="product-detail-actions">
+            <div class="action-stepper-row">
+              <div class="qty-stepper detail-stepper">
+                <button id="detailQtyMinus" class="stepper-btn">−</button>
+                <input id="detailQtyInput" type="text" class="stepper-input" value="1" readonly />
+                <button id="detailQtyPlus" class="stepper-btn">+</button>
+              </div>
+
+              <div id="detailSubtotalText" class="detail-subtotal-calc">
+                Order Quantity: <strong>1 Unit</strong>
+              </div>
+            </div>
+
+            <div class="action-buttons-row">
+              <button id="detailWaQuoteBtn" class="btn btn-whatsapp btn-lg">
+                <i class="fa-brands fa-whatsapp"></i> Instant WhatsApp Quote
+              </button>
+              <button id="detailAddQuoteBtn" class="btn btn-primary btn-lg">
+                <i class="fa-solid fa-file-invoice"></i> Add to Quote Cart
+              </button>
+            </div>
+          </div>
+
+          <!-- Trust Perks Checklist -->
+          <div class="product-perks-list">
+            <div class="perk-item"><i class="fa-solid fa-certificate"></i> 100% Grade A Prismatic Cells</div>
+            <div class="perk-item"><i class="fa-solid fa-microchip"></i> Smart Programmable Active BMS</div>
+            <div class="perk-item"><i class="fa-solid fa-shield-check"></i> Up to 36 Months Warranty</div>
+            <div class="perk-item"><i class="fa-solid fa-recycle"></i> Eco-Friendly Recyclable Design</div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- SPECIFICATIONS TABS -->
+      <section class="product-tabs-section">
+        <nav class="tabs-nav" aria-label="Product Tabs">
+          <button class="tab-btn active" data-tab="tabSpecs">Technical Specifications</button>
+          <button class="tab-btn" data-tab="tabApps">Compatible Applications</button>
+          <button class="tab-btn" data-tab="tabSafety">BMS &amp; Safety Features</button>
+          <button class="tab-btn" data-tab="tabShipping">Logistics &amp; Warranty Terms</button>
+        </nav>
+
+        <!-- Tab 1: Specs -->
+        <div id="tabSpecs" class="tab-pane active">
+          <table class="specs-table">
+            <tbody id="detailSpecsTableBody">
+              <!-- Dynamically populated by product-detail.js -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Tab 2: Applications -->
+        <div id="tabApps" class="tab-pane">
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:20px;">
+            <div style="background:var(--bg-card); padding:20px; border-radius:var(--radius-md); border:1px solid var(--border-subtle);">
+              <h4 style="color:#ffffff; margin-bottom:8px;"><i class="fa-solid fa-motorcycle" style="color:var(--accent-primary);"></i> Electric 2-Wheelers</h4>
+              <p style="font-size:0.88rem; color:var(--text-muted);">High continuous discharge rate engineered for high-speed electric scooters and motorcycles.</p>
+            </div>
+            <div style="background:var(--bg-card); padding:20px; border-radius:var(--radius-md); border:1px solid var(--border-subtle);">
+              <h4 style="color:#ffffff; margin-bottom:8px;"><i class="fa-solid fa-truck" style="color:var(--accent-cyan);"></i> E-Rickshaws &amp; 3-Wheelers</h4>
+              <p style="font-size:0.88rem; color:var(--text-muted);">Ruggedized shock-resistant mechanical casing designed for heavy payload passenger and cargo transport.</p>
+            </div>
+            <div style="background:var(--bg-card); padding:20px; border-radius:var(--radius-md); border:1px solid var(--border-subtle);">
+              <h4 style="color:#ffffff; margin-bottom:8px;"><i class="fa-solid fa-solar-panel" style="color:var(--accent-amber);"></i> Solar ESS &amp; Off-Grid</h4>
+              <p style="font-size:0.88rem; color:var(--text-muted);">Ultra-deep cycle life (3000+ cycles @ 80% DoD) for commercial solar setups and residential inverters.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: Safety -->
+        <div id="tabSafety" class="tab-pane">
+          <p style="color:var(--text-muted); margin-bottom:16px;">
+            Every Cell Care India battery module is equipped with an integrated Active Battery Management System (BMS) calibrated to Indian environmental extremes:
+          </p>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:12px; font-size:0.92rem; color:#ffffff;">
+            <li><i class="fa-solid fa-shield-virus" style="color:var(--accent-primary); margin-right:8px;"></i> <strong>Over-Charge &amp; Over-Discharge Cutoff:</strong> Protects individual cell voltage integrity.</li>
+            <li><i class="fa-solid fa-temperature-arrow-up" style="color:var(--accent-primary); margin-right:8px;"></i> <strong>Thermal Runaway Prevention:</strong> High-precision NTC temperature probes trigger shutdown above safe thresholds.</li>
+            <li><i class="fa-solid fa-bolt" style="color:var(--accent-primary); margin-right:8px;"></i> <strong>Short-Circuit Protection:</strong> Ultra-fast MOSFET cut-off prevents catastrophic surges.</li>
+            <li><i class="fa-solid fa-scale-balanced" style="color:var(--accent-primary); margin-right:8px;"></i> <strong>Active Cell Balancing:</strong> Equalizes cell charge during every charge cycle, maximizing battery lifespan.</li>
+          </ul>
+        </div>
+
+        <!-- Tab 4: Shipping -->
+        <div id="tabShipping" class="tab-pane">
+          <p style="color:var(--text-muted); line-height:1.7;">
+            • <strong>Insured Logistics:</strong> All battery consignments are shipped via hazardous-certified surface freight with protective wooden crating.<br>
+            • <strong>Testing Certificates:</strong> Factory cell capacity grading and BMS impedance test reports provided with every shipment.<br>
+            • <strong>Warranty Claim:</strong> Direct pan-India replacement and service support backed by Cell Care India engineering center.
+          </p>
+        </div>
+      </section>
+
+      <!-- RELATED PRODUCTS SECTION -->
+      <section id="detailRelatedSection" class="section" style="padding-top:0;">
+        <div class="section-header" style="text-align:left; margin-bottom:30px;">
+          <h3 class="section-title" style="font-size:1.8rem;">Related <span>Products &amp; Components</span></h3>
+          <p class="section-subtitle">Explore compatible EV battery packs, Smart BMS controllers, and genuine accessories.</p>
+        </div>
+        <div id="detailRelatedGrid" class="products-grid">
+          <div class="skeleton-card" aria-hidden="true">
+            <div class="skeleton-media skeleton-shimmer"></div>
+            <div class="skeleton-content">
+              <div class="skeleton-pill skeleton-shimmer"></div>
+              <div class="skeleton-title-bar skeleton-shimmer"></div>
+              <div class="skeleton-price-bar skeleton-shimmer"></div>
+              <div class="skeleton-actions-row">
+                <div class="skeleton-btn-bar skeleton-shimmer"></div>
+              </div>
+            </div>
+          </div>
+          <div class="skeleton-card" aria-hidden="true">
+            <div class="skeleton-media skeleton-shimmer"></div>
+            <div class="skeleton-content">
+              <div class="skeleton-pill skeleton-shimmer"></div>
+              <div class="skeleton-title-bar skeleton-shimmer"></div>
+              <div class="skeleton-price-bar skeleton-shimmer"></div>
+              <div class="skeleton-actions-row">
+                <div class="skeleton-btn-bar skeleton-shimmer"></div>
+              </div>
+            </div>
+          </div>
+          <div class="skeleton-card" aria-hidden="true">
+            <div class="skeleton-media skeleton-shimmer"></div>
+            <div class="skeleton-content">
+              <div class="skeleton-pill skeleton-shimmer"></div>
+              <div class="skeleton-title-bar skeleton-shimmer"></div>
+              <div class="skeleton-price-bar skeleton-shimmer"></div>
+              <div class="skeleton-actions-row">
+                <div class="skeleton-btn-bar skeleton-shimmer"></div>
+              </div>
+            </div>
+          </div>
+          <div class="skeleton-card" aria-hidden="true">
+            <div class="skeleton-media skeleton-shimmer"></div>
+            <div class="skeleton-content">
+              <div class="skeleton-pill skeleton-shimmer"></div>
+              <div class="skeleton-title-bar skeleton-shimmer"></div>
+              <div class="skeleton-price-bar skeleton-shimmer"></div>
+              <div class="skeleton-actions-row">
+                <div class="skeleton-btn-bar skeleton-shimmer"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- GLOBAL SLIDE-OVER QUOTE DRAWER -->
+  <aside id="quoteDrawer" class="quote-drawer">
+    <div class="quote-drawer-header">
+      <h3><i class="fa-solid fa-file-invoice" style="color:var(--accent-primary);"></i> Your Quotation Cart</h3>
+      <button id="quoteDrawerClose" class="quote-drawer-close">&times;</button>
+    </div>
+    
+    <div id="quoteDrawerItems" class="quote-drawer-body">
+      <!-- Populated dynamically by core.js -->
+    </div>
+
+    <div class="quote-drawer-footer">
+      <div class="quote-summary-row">
+        <span id="quoteDrawerCountText" style="color:var(--text-muted);">Subtotal</span>
+        <span id="quoteDrawerTotal" class="quote-summary-total">₹0</span>
+      </div>
+      <button id="quoteDrawerProceed" class="btn btn-primary" style="width:100%;">
+        <i class="fa-solid fa-arrow-right"></i> Proceed to WhatsApp Checkout
+      </button>
+    </div>
+  </aside>
+
+  <!-- SITE FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <div class="brand-icon-box"><i class="fa-solid fa-bolt-lightning"></i></div>
+            <span class="brand-name">CELL CARE <span class="brand-tag">INDIA</span></span>
+          </div>
+          <p>Cell Care India is an ISO 9001:2015 certified manufacturer of high-reliability Lithium-ion &amp; LiFePO4 battery modules.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">All Products</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Factory Contact</h4>
+          <ul class="footer-contact-list">
+            <li><i class="fa-solid fa-location-dot"></i> <span data-bind="site-address">New Delhi, India</span></li>
+            <li><i class="fa-solid fa-phone"></i> <span data-bind="site-phone">+91 85059 10581</span></li>
+            <li><i class="fa-solid fa-envelope"></i> <span data-bind="site-email">sales@cellcareindia.com</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 Cell Care India. All rights reserved. Made in India.</div>
+        <div class="footer-bottom-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms &amp; Warranty</a>
+          <a href="sitemap.xml">XML Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/api-config.js"></script>
+  <script src="assets/js/core.js"></script>
+  <script src="assets/js/product-detail.js"></script>
+</body>
+</html>

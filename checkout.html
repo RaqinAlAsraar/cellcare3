@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Order Checkout | Cell Care India</title>
+  <meta name="title" content="Order Checkout | Cell Care India" />
+  <meta name="description" content="Review your order quotation and send your inquiry directly on WhatsApp to Cell Care India." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="canonical" href="https://cellcareindia.com/checkout.html" />
+  <meta name="theme-color" content="#00ff7f" />
+
+  <!-- External Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <!-- Core Design System & Styles -->
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/checkout.css" />
+</head>
+
+<body>
+
+  <!-- SITE HEADER & NAVBAR -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="index.html" class="brand-logo" aria-label="Cell Care India Home">
+          <div class="brand-icon-box"><i class="fa-solid fa-bolt-lightning"></i></div>
+          <span class="brand-name">CELL CARE <span class="brand-tag">INDIA</span></span>
+        </a>
+
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="products.html" class="nav-link">Products</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <a href="products.html" class="btn btn-outline btn-sm">
+            <i class="fa-solid fa-plus"></i> Add Products
+          </a>
+          <button id="hamburgerBtn" class="hamburger-btn" aria-label="Open Mobile Menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Sidebar Drawer -->
+  <aside id="mobileSidebar" class="mobile-sidebar">
+    <div class="mobile-sidebar-header">
+      <div class="brand-logo">
+        <div class="brand-icon-box"><i class="fa-solid fa-bolt-lightning"></i></div>
+        <span class="brand-name">CELL CARE</span>
+      </div>
+      <button id="closeSidebarBtn" style="background:none; border:none; color:#fff; font-size:1.5rem; cursor:pointer;">&times;</button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+      <li><a href="products.html"><i class="fa-solid fa-boxes-stacked"></i> Products</a></li>
+      <li><a href="services.html"><i class="fa-solid fa-screwdriver-wrench"></i> Services</a></li>
+      <li><a href="about.html"><i class="fa-solid fa-building"></i> About Us</a></li>
+      <li><a href="contact.html"><i class="fa-solid fa-headset"></i> Contact</a></li>
+      <li><a href="checkout.html" class="active"><i class="fa-solid fa-cart-shopping"></i> Checkout</a></li>
+    </ul>
+  </aside>
+
+  <!-- Global Backdrop -->
+  <div id="overlayBackdrop" class="overlay-backdrop"></div>
+
+  <!-- MAIN CHECKOUT CONTENT -->
+  <main class="section" style="padding-top: 36px; min-height: 75vh;">
+    <div class="container" style="max-width: 1040px;">
+      
+      <div class="section-header" style="text-align: left; margin-bottom: 28px;">
+        <h1 class="section-title" style="font-size: 2rem;">Order <span>Checkout</span></h1>
+        <p class="section-subtitle" style="font-size: 0.95rem; margin-top: 4px;">
+          Confirm your details to dispatch your order inquiry directly to WhatsApp.
+        </p>
+      </div>
+
+      <!-- 2-COLUMN CHECKOUT GRID -->
+      <div class="checkout-grid">
+        
+        <!-- Left: Customer Details Form -->
+        <section class="checkout-card">
+          <h2 class="checkout-card-title">
+            <i class="fa-solid fa-user" style="color:var(--accent-primary);"></i>
+            Your Details
+          </h2>
+
+          <form id="checkoutOrderForm" novalidate>
+            
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label for="custName">Your Name <span class="req">*</span></label>
+                <input id="custName" type="text" class="form-control" placeholder="Full Name" required />
+              </div>
+
+              <div class="form-group">
+                <label for="custPhone">WhatsApp Number <span class="req">*</span></label>
+                <input id="custPhone" type="tel" class="form-control" placeholder="10-digit Mobile Number" inputmode="tel" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="custAddress">City / Delivery Address (Optional)</label>
+              <input id="custAddress" type="text" class="form-control" placeholder="City or Full Address" />
+            </div>
+
+            <div class="form-group">
+              <label for="custNotes">Order Notes / Requirements (Optional)</label>
+              <textarea id="custNotes" class="form-control" placeholder="Any custom voltage, battery pack specs, or timeline requirements"></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" id="checkoutSubmitBtn" class="btn btn-whatsapp btn-lg" style="width: 100%; margin-top: 10px;">
+              <i class="fa-brands fa-whatsapp"></i> Send Order to WhatsApp
+            </button>
+
+          </form>
+        </section>
+
+        <!-- Right: Order Summary Sidebar -->
+        <aside class="order-summary-sidebar">
+          <div class="checkout-card">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid var(--border-subtle);">
+              <h2 class="checkout-card-title" style="margin-bottom:0; padding-bottom:0; border-bottom:none;">
+                <i class="fa-solid fa-bag-shopping" style="color:var(--accent-primary);"></i>
+                Order Summary
+              </h2>
+              <a href="products.html" class="btn btn-outline btn-sm" style="padding: 6px 12px; font-size: 0.8rem;">
+                + Add Items
+              </a>
+            </div>
+
+            <!-- Items List -->
+            <div id="checkoutItemList" class="order-items-list">
+              <!-- Rendered by checkout.js -->
+            </div>
+
+            <!-- Financial Breakdown -->
+            <div class="order-breakdown">
+              <div class="order-breakdown-row total-row">
+                <span>Estimated Total</span>
+                <span id="checkoutTotalVal">₹0</span>
+              </div>
+            </div>
+
+          </div>
+        </aside>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- SITE FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <div class="brand-icon-box"><i class="fa-solid fa-bolt-lightning"></i></div>
+            <span class="brand-name">CELL CARE <span class="brand-tag">INDIA</span></span>
+          </div>
+          <p>Cell Care India — Lithium-ion &amp; LiFePO4 battery packs, BMS, and components.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="footer-contact-list">
+            <li><i class="fa-solid fa-location-dot"></i> <span data-bind="site-address">New Delhi - 110051</span></li>
+            <li><i class="fa-solid fa-phone"></i> <span data-bind="site-phone">+91 85059 10581</span></li>
+            <li><i class="fa-solid fa-envelope"></i> <span data-bind="site-email">CellCareIndia2025@gmail.com</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 Cell Care India. All rights reserved.</div>
+        <div class="footer-bottom-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/api-config.js"></script>
+  <script src="assets/js/core.js"></script>
+  <script src="assets/js/checkout.js"></script>
+</body>
+</html>
